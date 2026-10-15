@@ -435,6 +435,10 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 600; }
   color: var(--c-gold);
 }
 .stars--sm { --size: 0.8rem; }
+/* Mức sao cố định dùng trong HTML tĩnh (sao động do JS đặt --rating) */
+.stars--r50 { --rating: 5; }
+.stars--r48 { --rating: 4.8; }
+.stars--r45 { --rating: 4.5; }
 
 .rating {
   display: inline-flex;
