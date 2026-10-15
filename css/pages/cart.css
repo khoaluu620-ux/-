@@ -1,0 +1,148 @@
+/* ==========================================================================
+   AURUM TECH — pages/cart.css
+   Giỏ hàng (cart.html)
+   Nạp SAU css/style.css (dùng các biến CSS được khai báo ở đó).
+   ========================================================================== */
+/* GIỎ HÀNG & THANH TOÁN ================================================= */
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-6);
+  align-items: start;
+}
+.cart__head,
+.cart-item {
+  display: grid;
+  grid-template-columns: 96px 1fr 130px 130px 130px 44px;
+  align-items: center;
+  gap: var(--space-4);
+}
+.cart__head {
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--c-border);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-text-dim);
+}
+.cart__head span:first-child { grid-column: 1 / 3; }
+.cart-item {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--c-border);
+}
+.cart-item__img {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--c-surface-2);
+}
+.cart-item__img img {
+  width: 100%;
+  height: 100%;
+}
+.cart-item__name { font-weight: 500; }
+.cart-item__name:hover { color: var(--c-gold-light); }
+.cart-item__opts {
+  margin-top: 2px;
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+}
+.cart-item__unit-mobile { display: none; }
+.cart-item__price {
+  color: var(--c-text-muted);
+  font-size: var(--fs-sm);
+}
+.cart-item__total {
+  font-weight: 600;
+  color: var(--c-gold-light);
+}
+.cart-item__remove { color: var(--c-text-dim); }
+.cart-item__remove:hover { color: var(--c-danger); }
+.cart__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.freeship {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.freeship p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+.freeship strong { color: var(--c-gold-light); }
+.freeship .icon { color: var(--c-success); }
+.freeship__bar {
+  height: 6px;
+  margin-top: var(--space-2);
+  border-radius: 6px;
+  background: var(--c-surface-3);
+  overflow: hidden;
+}
+.freeship__bar span {
+  display: block;
+  height: 100%;
+  background: var(--gradient-gold);
+  border-radius: inherit;
+  transition: width 0.6s var(--ease);
+}
+
+/* RESPONSIVE =========================================================== */
+
+/* Laptop nhỏ ≤ 1200px */
+@media (max-width: 1200px) {
+  .cart__head,
+  .cart-item {
+    grid-template-columns: 84px 1fr 110px 120px 120px 40px;
+    gap: var(--space-3);
+  }
+}
+
+/* Tablet ≤ 991px */
+@media (max-width: 991.98px) {
+  .cart-layout { grid-template-columns: 1fr; }
+}
+
+/* Mobile ngang ≤ 767px */
+@media (max-width: 767.98px) {
+  /* Giỏ hàng dạng thẻ */
+  .cart__head { display: none; }
+  .cart-item {
+    grid-template-columns: 84px 1fr auto;
+    grid-template-areas:
+      'img info remove'
+      'img qty total';
+    row-gap: var(--space-3);
+  }
+  .cart-item__img {
+    grid-area: img;
+    align-self: start;
+  }
+  .cart-item__info { grid-area: info; }
+  .cart-item__price { display: none; }
+  .cart-item__unit-mobile {
+    display: block;
+    margin-top: 4px;
+    font-size: var(--fs-sm);
+    color: var(--c-text-muted);
+  }
+  .cart-item .qty {
+    grid-area: qty;
+    justify-self: start;
+  }
+  .cart-item__total {
+    grid-area: total;
+    justify-self: end;
+  }
+  .cart-item__remove {
+    grid-area: remove;
+    align-self: start;
+  }
+}

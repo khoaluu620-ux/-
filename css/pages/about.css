@@ -1,0 +1,167 @@
+/* ==========================================================================
+   AURUM TECH — pages/about.css
+   Giới thiệu (about.html)
+   Nạp SAU css/style.css (dùng các biến CSS được khai báo ở đó).
+   ========================================================================== */
+/* GIỚI THIỆU & LIÊN HỆ ================================================== */
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.story--reverse .story__media { order: 2; }
+.story__media { position: relative; }
+.story__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border);
+}
+.story__badge {
+  position: absolute;
+  right: -16px;
+  bottom: 32px;
+  display: grid;
+  place-items: center;
+  width: 136px;
+  height: 136px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  color: var(--c-on-gold);
+  text-align: center;
+  box-shadow: var(--shadow-gold);
+}
+.story__badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.story__badge span {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.story__content > p:not(.eyebrow) {
+  margin-top: var(--space-4);
+  color: var(--c-text-muted);
+}
+.story__content .section-title { margin-bottom: var(--space-2); }
+.story__content .btn { margin-top: var(--space-5); }
+.stats-band {
+  padding-block: var(--space-7);
+  border-block: 1px solid var(--c-border);
+  background: var(--c-bg-alt);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  text-align: center;
+}
+.stats-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.stats-grid dd {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--c-gold-light);
+  line-height: 1.1;
+}
+.stats-grid dt {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-5);
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+}
+.timeline li {
+  position: relative;
+  padding-top: var(--space-6);
+}
+.timeline li::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--c-bg);
+  border: 2px solid var(--c-gold);
+}
+.timeline time {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--c-gold-light);
+}
+.timeline h3 {
+  margin-block: var(--space-1) var(--space-2);
+  font-size: var(--fs-base);
+}
+.timeline p {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+/* RESPONSIVE =========================================================== */
+
+/* Tablet ≤ 991px */
+@media (max-width: 991.98px) {
+  .story { grid-template-columns: 1fr; }
+  .story--reverse .story__media { order: 0; }
+  .story__media { max-width: 560px; }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-6);
+  }
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-left: var(--space-5);
+  }
+  .timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, var(--c-gold), transparent);
+  }
+  .timeline li {
+    padding-top: 0;
+    padding-left: var(--space-5);
+  }
+  .timeline li::before {
+    top: 10px;
+    left: calc(-1 * var(--space-5));
+  }
+}
+
+/* Mobile ≤ 479px */
+@media (max-width: 479.98px) {
+  .stats-grid dd { font-size: 1.8rem; }
+  .story__badge {
+    width: 110px;
+    height: 110px;
+    right: 8px;
+  }
+  .story__badge strong { font-size: 2rem; }
+}

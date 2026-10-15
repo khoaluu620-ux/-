@@ -17,10 +17,32 @@ Website bán lẻ thiết bị công nghệ cao cấp, xây dựng bằng **HTML
 ├── contact.html          Liên hệ + FAQ + bản đồ
 ├── login.html            Đăng nhập / Đăng ký / Tài khoản & lịch sử đơn
 ├── wishlist.html         Sản phẩm yêu thích
-├── css/style.css         Toàn bộ giao diện (CSS Variables, Flexbox, Grid, responsive)
-├── js/script.js          Dữ liệu mẫu + toàn bộ logic
+├── css/
+│   ├── style.css         Dùng chung: biến thiết kế, reset, nút, header, footer,
+│   │                     thẻ sản phẩm, biểu mẫu, tóm tắt đơn hàng, toast…
+│   └── pages/            Giao diện riêng từng trang (cùng tên với file .html)
+│       ├── index.css  about.css  products.css  product-detail.css  cart.css
+│       └── checkout.css  contact.css  login.css  wishlist.css
+├── js/
+│   ├── script.js         Dùng chung: dữ liệu sản phẩm, giỏ hàng, yêu thích, tài khoản,
+│   │                     header/footer, tìm kiếm, menu mobile, kiểm tra form, khởi động
+│   └── pages/            Chức năng riêng từng trang (about.html không cần JS riêng)
+│       ├── index.js  products.js  product-detail.js  cart.js
+│       └── checkout.js  contact.js  login.js  wishlist.js
 └── images/               Ảnh dự phòng SVG theo danh mục, favicon
 ```
+
+Mỗi trang nạp **file chung trước, file riêng sau**:
+
+```html
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/pages/cart.css">
+...
+<script src="js/script.js" defer></script>
+<script src="js/pages/cart.js" defer></script>
+```
+
+File JS của trang tự đăng ký hàm khởi tạo bằng `registerPage('cart', initCart)`; `script.js` gọi đúng hàm theo `<body data-page="cart">`. Thêm trang mới: tạo `ten-trang.html`, `css/pages/ten-trang.css`, `js/pages/ten-trang.js` và đặt `data-page` tương ứng.
 
 Header, footer, menu mobile và hộp tìm kiếm được `script.js` dựng chung cho mọi trang để đảm bảo nhất quán; nội dung chính mỗi trang là HTML semantic (`header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `dl`, `fieldset`…).
 

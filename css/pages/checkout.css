@@ -1,0 +1,269 @@
+/* ==========================================================================
+   AURUM TECH — pages/checkout.css
+   Thanh toán (checkout.html)
+   Nạp SAU css/style.css (dùng các biến CSS được khai báo ở đó).
+   ========================================================================== */
+/* BIỂU MẪU ============================================================== */
+.radio-cards {
+  display: grid;
+  gap: var(--space-3);
+}
+.radio-card {
+  position: relative;
+  cursor: pointer;
+}
+.radio-card input {
+  position: absolute;
+  opacity: 0;
+}
+.radio-card__body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--radius);
+  transition: all var(--dur) var(--ease);
+}
+.radio-card__body > [data-icon] {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--c-surface-2);
+  color: var(--c-text-muted);
+}
+.radio-card__body > span:nth-child(2) { flex: 1; }
+.radio-card__body strong {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.radio-card__body small {
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+}
+.radio-card__body em {
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--c-gold-light);
+  white-space: nowrap;
+}
+.radio-card:hover .radio-card__body { border-color: rgba(201, 169, 110, 0.5); }
+.radio-card input:checked + .radio-card__body {
+  border-color: var(--c-gold);
+  background: var(--c-gold-soft);
+}
+.radio-card input:checked + .radio-card__body > [data-icon] {
+  background: var(--c-gold);
+  color: var(--c-on-gold);
+}
+.radio-card input:focus-visible + .radio-card__body {
+  outline: 2px solid var(--c-gold-light);
+  outline-offset: 2px;
+}
+.payment-panel {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1px dashed rgba(201, 169, 110, 0.4);
+  border-radius: var(--radius);
+  background: var(--c-bg);
+}
+.payment-panel__note {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.payment-panel__note:last-child { margin-bottom: 0; }
+.bank-info {
+  display: grid;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+.bank-info div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.bank-info dt { color: var(--c-text-muted); }
+.bank-info dd {
+  font-weight: 500;
+  text-align: right;
+}
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  border-radius: var(--radius);
+  background: var(--c-gold-soft);
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.notice [data-icon] {
+  color: var(--c-gold);
+  margin-top: 2px;
+}
+.notice strong { color: var(--c-text); }
+
+/* GIỎ HÀNG & THANH TOÁN ================================================= */
+.checkout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-6);
+  align-items: start;
+}
+.checkout__aside {
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+  display: grid;
+  gap: var(--space-3);
+}
+.checkout__aside .summary-card { position: static; }
+.mini-cart {
+  display: grid;
+  gap: var(--space-3);
+  max-height: 320px;
+  overflow-y: auto;
+  margin-bottom: var(--space-4);
+  padding-right: 4px;
+}
+.mini-cart li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.mini-cart__img {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+}
+.mini-cart__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-sm);
+}
+.mini-cart__img em {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--c-surface-3);
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+}
+.mini-cart__info {
+  flex: 1;
+  min-width: 0;
+}
+.mini-cart__info strong {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mini-cart__info small {
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+}
+.mini-cart__price {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* TOAST, MODAL, EMPTY STATE, BACK-TO-TOP ================================ */
+.modal {
+  width: min(520px, calc(100vw - 32px));
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  border-radius: var(--radius-lg);
+  background: var(--c-surface);
+  color: var(--c-text);
+  box-shadow: var(--shadow);
+}
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+.modal[open] { animation: modal-in 0.4s var(--ease); }
+.modal__inner {
+  position: relative;
+  padding: var(--space-7) var(--space-6) var(--space-6);
+  text-align: center;
+}
+.modal__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: var(--c-text-muted);
+}
+.modal__icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto var(--space-4);
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  color: var(--c-on-gold);
+}
+.modal__icon .icon {
+  width: 34px;
+  height: 34px;
+  stroke-width: 2.2;
+}
+.modal h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+}
+.modal__text {
+  margin-top: var(--space-3);
+  color: var(--c-text-muted);
+  font-size: var(--fs-sm);
+}
+.modal__details {
+  display: grid;
+  gap: var(--space-2);
+  margin-block: var(--space-5);
+  padding: var(--space-4);
+  border-radius: var(--radius);
+  background: var(--c-bg);
+  text-align: left;
+  font-size: var(--fs-sm);
+}
+.modal__details div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.modal__details dt { color: var(--c-text-muted); }
+.modal__details dd {
+  font-weight: 600;
+  text-align: right;
+}
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* RESPONSIVE =========================================================== */
+
+/* Tablet ≤ 991px */
+@media (max-width: 991.98px) {
+  .checkout { grid-template-columns: 1fr; }
+  .checkout__aside { position: static; }
+}
