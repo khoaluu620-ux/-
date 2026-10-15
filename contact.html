@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên hệ | Aurum Tech</title>
+  <meta name="description" content="Liên hệ Aurum Tech – hotline, email, địa chỉ showroom và câu hỏi thường gặp.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol><li><a href="index.html">Trang chủ</a></li><li aria-current="page">Liên hệ</li></ol>
+        </nav>
+        <p class="eyebrow">Liên hệ</p>
+        <h1 class="page-title">Chúng tôi luôn <em>lắng nghe</em></h1>
+        <p class="page-lead">Đặt lịch tư vấn riêng, hỏi về sản phẩm hay hỗ trợ bảo hành – đội ngũ Aurum phản hồi trong vòng 2 giờ làm việc.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <ul class="contact-cards">
+          <li class="contact-card" data-reveal>
+            <span class="feature__icon" data-icon="phone"></span>
+            <h2>Hotline</h2>
+            <p><a href="tel:02838226868">(028) 3822 6868</a></p>
+            <small>8:00 – 21:30, tất cả các ngày</small>
+          </li>
+          <li class="contact-card" data-reveal>
+            <span class="feature__icon" data-icon="mail"></span>
+            <h2>Email</h2>
+            <p><a href="mailto:cskh@aurumtech.vn">cskh@aurumtech.vn</a></p>
+            <small>Phản hồi trong 2 giờ làm việc</small>
+          </li>
+          <li class="contact-card" data-reveal>
+            <span class="feature__icon" data-icon="pin"></span>
+            <h2>Showroom chính</h2>
+            <address>72 Lê Thánh Tôn, Phường Sài Gòn, TP. Hồ Chí Minh</address>
+            <small>Thông tin liên hệ là dữ liệu mẫu</small>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container contact-layout">
+        <div class="form-card" data-reveal>
+          <h2 class="form-card__title">Gửi tin nhắn cho chúng tôi</h2>
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="ct-name">Họ và tên <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="ct-name" name="name" type="text" autocomplete="name" data-validate="required" data-label="họ và tên" aria-describedby="ct-name-error">
+                <p class="field__error" id="ct-name-error"></p>
+              </div>
+              <div class="field">
+                <label for="ct-phone">Số điện thoại</label>
+                <input class="input" id="ct-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" data-validate="phone-optional" data-label="số điện thoại" aria-describedby="ct-phone-error">
+                <p class="field__error" id="ct-phone-error"></p>
+              </div>
+              <div class="field">
+                <label for="ct-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="ct-email" name="email" type="email" autocomplete="email" data-validate="required email" data-label="email" aria-describedby="ct-email-error">
+                <p class="field__error" id="ct-email-error"></p>
+              </div>
+              <div class="field">
+                <label for="ct-subject">Chủ đề <span class="req" aria-hidden="true">*</span></label>
+                <select class="select" id="ct-subject" name="subject" data-validate="required" data-label="chủ đề" aria-describedby="ct-subject-error">
+                  <option value="">— Chọn chủ đề —</option>
+                  <option>Tư vấn sản phẩm</option>
+                  <option>Đặt lịch tư vấn riêng</option>
+                  <option>Bảo hành &amp; sửa chữa</option>
+                  <option>Theo dõi đơn hàng</option>
+                  <option>Hợp tác kinh doanh</option>
+                </select>
+                <p class="field__error" id="ct-subject-error"></p>
+              </div>
+              <div class="field field--full">
+                <label for="ct-message">Nội dung <span class="req" aria-hidden="true">*</span></label>
+                <textarea class="input" id="ct-message" name="message" rows="5" data-validate="required min:10" data-label="nội dung" aria-describedby="ct-message-error"></textarea>
+                <p class="field__error" id="ct-message-error"></p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--gold btn--lg">Gửi tin nhắn <span data-icon="arrow-right"></span></button>
+            <p class="form-hint">Biểu mẫu mô phỏng: tin nhắn chỉ được lưu trong trình duyệt của bạn, chưa gửi tới máy chủ.</p>
+          </form>
+        </div>
+
+        <div class="map-card" data-reveal>
+          <iframe title="Bản đồ showroom Aurum Tech" src="https://www.google.com/maps?q=72+L%C3%AA+Th%C3%A1nh+T%C3%B4n,+TP.+H%E1%BB%93+Ch%C3%AD+Minh&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map-card__info">
+            <h3>Giờ mở cửa</h3>
+            <p>Thứ 2 – Chủ nhật: 9:00 – 22:00</p>
+            <p>Ngày lễ: 10:00 – 21:00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section-head">
+          <p class="eyebrow">Hỗ trợ</p>
+          <h2 class="section-title" id="faq-title">Câu hỏi thường gặp</h2>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>Sản phẩm tại Aurum Tech có phải hàng chính hãng không?</summary>
+            <p>Tất cả sản phẩm đều được phân phối chính hãng tại Việt Nam, có hoá đơn VAT và được bảo hành theo chính sách của nhà sản xuất.</p>
+          </details>
+          <details>
+            <summary>Chính sách đổi trả như thế nào?</summary>
+            <p>Đổi mới 1:1 trong 30 ngày nếu có lỗi phần cứng từ nhà sản xuất. Sản phẩm cần còn đầy đủ hộp và phụ kiện.</p>
+          </details>
+          <details>
+            <summary>Tôi có thể trả góp không?</summary>
+            <p>Có. Aurum hỗ trợ trả góp 0% qua thẻ tín dụng và công ty tài chính (tính năng trả góp trên website hiện là mô phỏng, vui lòng liên hệ showroom).</p>
+          </details>
+          <details>
+            <summary>Phí vận chuyển được tính ra sao?</summary>
+            <p>Miễn phí giao tiêu chuẩn cho đơn từ 5.000.000₫, dưới mức này phí là 40.000₫. Giao hoả tốc 2 giờ có phí 80.000₫.</p>
+          </details>
+          <details>
+            <summary>Website có xử lý thanh toán thật không?</summary>
+            <p>Không. Đây là bản demo front-end: giỏ hàng, tài khoản và đơn hàng được lưu trong LocalStorage của trình duyệt; mọi thanh toán đều là mô phỏng.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

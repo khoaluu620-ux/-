@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán | Aurum Tech</title>
+  <meta name="description" content="Thanh toán đơn hàng (mô phỏng) tại Aurum Tech.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+  <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <section class="page-hero page-hero--compact">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol><li><a href="index.html">Trang chủ</a></li><li><a href="cart.html">Giỏ hàng</a></li><li aria-current="page">Thanh toán</li></ol>
+        </nav>
+        <h1 class="page-title">Thanh toán</h1>
+        <ol class="steps" aria-label="Tiến trình đặt hàng">
+          <li class="is-done"><span>1</span>Giỏ hàng</li>
+          <li class="is-active" aria-current="step"><span>2</span>Thanh toán</li>
+          <li><span>3</span>Hoàn tất</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container" id="checkout-root">
+        <div class="notice" role="note">
+          <span data-icon="lock"></span>
+          <p><strong>Thanh toán mô phỏng:</strong> đây là website demo chỉ có front-end. Đơn hàng chỉ được lưu trong LocalStorage của trình duyệt, <strong>không có giao dịch thật</strong> và không có dữ liệu nào được gửi lên máy chủ. Vui lòng <strong>không nhập thông tin thẻ thật</strong>.</p>
+        </div>
+
+        <form class="checkout" id="checkout-form" novalidate>
+          <div class="checkout__main">
+            <fieldset class="form-card">
+              <legend class="form-card__title"><span class="form-card__num">1</span>Thông tin người nhận</legend>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="co-name">Họ và tên <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="co-name" name="name" type="text" autocomplete="name" data-validate="required" data-label="họ và tên" aria-describedby="co-name-error">
+                  <p class="field__error" id="co-name-error"></p>
+                </div>
+                <div class="field">
+                  <label for="co-phone">Số điện thoại <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="co-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="0912 345 678" data-validate="required phone" data-label="số điện thoại" aria-describedby="co-phone-error">
+                  <p class="field__error" id="co-phone-error"></p>
+                </div>
+                <div class="field field--full">
+                  <label for="co-email">Email <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="co-email" name="email" type="email" autocomplete="email" placeholder="ban@email.com" data-validate="required email" data-label="email" aria-describedby="co-email-error">
+                  <p class="field__error" id="co-email-error"></p>
+                </div>
+                <div class="field">
+                  <label for="co-province">Tỉnh / Thành phố <span class="req" aria-hidden="true">*</span></label>
+                  <select class="select" id="co-province" name="province" autocomplete="address-level1" data-validate="required" data-label="tỉnh / thành phố" aria-describedby="co-province-error">
+                    <option value="">— Chọn tỉnh / thành —</option>
+                  </select>
+                  <p class="field__error" id="co-province-error"></p>
+                </div>
+                <div class="field">
+                  <label for="co-ward">Phường / Xã <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="co-ward" name="ward" type="text" autocomplete="address-level2" placeholder="VD: Phường Sài Gòn" data-validate="required" data-label="phường / xã" aria-describedby="co-ward-error">
+                  <p class="field__error" id="co-ward-error"></p>
+                </div>
+                <div class="field field--full">
+                  <label for="co-address">Địa chỉ cụ thể <span class="req" aria-hidden="true">*</span></label>
+                  <input class="input" id="co-address" name="address" type="text" autocomplete="street-address" placeholder="Số nhà, tên đường, toà nhà…" data-validate="required" data-label="địa chỉ" aria-describedby="co-address-error">
+                  <p class="field__error" id="co-address-error"></p>
+                </div>
+                <div class="field field--full">
+                  <label for="co-note">Ghi chú đơn hàng</label>
+                  <textarea class="input" id="co-note" name="note" rows="3" placeholder="VD: Giao giờ hành chính, gói quà tặng…"></textarea>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend class="form-card__title"><span class="form-card__num">2</span>Phương thức giao hàng</legend>
+              <div class="radio-cards">
+                <label class="radio-card">
+                  <input type="radio" name="shipping" value="standard" checked>
+                  <span class="radio-card__body"><span data-icon="truck"></span><span><strong>Giao tiêu chuẩn</strong><small>2 – 4 ngày · Miễn phí cho đơn từ 5.000.000₫</small></span><em id="ship-standard-fee"></em></span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="shipping" value="express">
+                  <span class="radio-card__body"><span data-icon="clock"></span><span><strong>Hoả tốc 2 giờ</strong><small>Nội thành Hà Nội &amp; TP.HCM</small></span><em id="ship-express-fee"></em></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-card">
+              <legend class="form-card__title"><span class="form-card__num">3</span>Phương thức thanh toán</legend>
+              <div class="radio-cards">
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="cod" checked>
+                  <span class="radio-card__body"><span data-icon="gift"></span><span><strong>Thanh toán khi nhận hàng (COD)</strong><small>Kiểm tra hàng trước khi thanh toán</small></span></span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="bank">
+                  <span class="radio-card__body"><span data-icon="building"></span><span><strong>Chuyển khoản ngân hàng</strong><small>Thông tin tài khoản mô phỏng</small></span></span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="card">
+                  <span class="radio-card__body"><span data-icon="card"></span><span><strong>Thẻ tín dụng / ghi nợ</strong><small>Visa, Mastercard, JCB (mô phỏng)</small></span></span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="payment" value="wallet">
+                  <span class="radio-card__body"><span data-icon="phone"></span><span><strong>Ví điện tử</strong><small>MoMo, ZaloPay, VNPay (mô phỏng)</small></span></span>
+                </label>
+              </div>
+
+              <div class="payment-panel" data-payment-panel="bank" hidden>
+                <p class="payment-panel__note">Thông tin dưới đây chỉ là <strong>dữ liệu mẫu</strong>, không phải tài khoản thật. Không chuyển tiền.</p>
+                <dl class="bank-info">
+                  <div><dt>Ngân hàng</dt><dd>Ngân hàng Mẫu (DEMO BANK)</dd></div>
+                  <div><dt>Số tài khoản</dt><dd>0000 1234 5678</dd></div>
+                  <div><dt>Chủ tài khoản</dt><dd>CONG TY AURUM TECH (DEMO)</dd></div>
+                  <div><dt>Nội dung</dt><dd>Mã đơn hàng sau khi đặt</dd></div>
+                </dl>
+              </div>
+
+              <div class="payment-panel" data-payment-panel="card" hidden>
+                <p class="payment-panel__note">Thử với số thẻ mẫu <strong>4242 4242 4242 4242</strong>, hạn bất kỳ trong tương lai, CVV bất kỳ. Dữ liệu thẻ không được lưu hay gửi đi.</p>
+                <div class="form-grid">
+                  <div class="field field--full">
+                    <label for="co-card">Số thẻ</label>
+                    <input class="input" id="co-card" name="card" type="text" inputmode="numeric" autocomplete="off" placeholder="4242 4242 4242 4242" maxlength="19" data-validate="required card" data-label="số thẻ" aria-describedby="co-card-error">
+                    <p class="field__error" id="co-card-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="co-exp">Ngày hết hạn</label>
+                    <input class="input" id="co-exp" name="exp" type="text" inputmode="numeric" autocomplete="off" placeholder="MM/YY" maxlength="5" data-validate="required expiry" data-label="ngày hết hạn" aria-describedby="co-exp-error">
+                    <p class="field__error" id="co-exp-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="co-cvv">CVV</label>
+                    <input class="input" id="co-cvv" name="cvv" type="password" inputmode="numeric" autocomplete="off" placeholder="•••" maxlength="4" data-validate="required cvv" data-label="CVV" aria-describedby="co-cvv-error">
+                    <p class="field__error" id="co-cvv-error"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="payment-panel" data-payment-panel="wallet" hidden>
+                <p class="payment-panel__note">Ở bản thật, bạn sẽ được chuyển sang cổng ví điện tử để xác nhận. Bản demo sẽ giả lập giao dịch thành công.</p>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="checkout__aside">
+            <div class="summary-card" id="checkout-summary"></div>
+            <div class="field field--check">
+              <label class="check">
+                <input type="checkbox" name="agree" id="co-agree" data-validate="required" aria-describedby="co-agree-error">
+                <span>Tôi đồng ý với <a href="contact.html#faq">điều khoản mua hàng</a> và hiểu đây là đơn hàng mô phỏng.</span>
+              </label>
+              <p class="field__error" id="co-agree-error"></p>
+            </div>
+            <button type="submit" class="btn btn--gold btn--lg btn--block" id="place-order">
+              <span data-icon="lock"></span> <span class="btn__label">Đặt hàng</span>
+            </button>
+            <a href="cart.html" class="btn btn--ghost btn--block">← Quay lại giỏ hàng</a>
+          </aside>
+        </form>
+      </div>
+    </section>
+
+    <dialog class="modal" id="order-modal" aria-labelledby="order-modal-title">
+      <div class="modal__inner">
+        <form method="dialog"><button class="icon-btn modal__close" aria-label="Đóng"><span data-icon="close"></span></button></form>
+        <span class="modal__icon" data-icon="check"></span>
+        <h2 id="order-modal-title">Đặt hàng thành công!</h2>
+        <p class="modal__text" id="order-modal-text"></p>
+        <dl class="modal__details" id="order-modal-details"></dl>
+        <div class="modal__actions">
+          <a href="login.html" class="btn btn--outline">Xem đơn hàng</a>
+          <a href="products.html" class="btn btn--gold">Tiếp tục mua sắm</a>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

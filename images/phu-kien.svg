@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Phụ kiện">
+  <defs>
+    <radialGradient id="bg" cx="70%" cy="25%" r="90%">
+      <stop offset="0" stop-color="#2a2620"/>
+      <stop offset=".55" stop-color="#16161a"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecd8a8"/>
+      <stop offset=".5" stop-color="#c9a96e"/>
+      <stop offset="1" stop-color="#9c7b45"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="400.0" cy="370.0" r="170" fill="none" stroke="#c9a96e" stroke-opacity=".18"/>
+  <circle cx="400.0" cy="370.0" r="230" fill="none" stroke="#c9a96e" stroke-opacity=".08"/>
+  <g transform="translate(400.0 370.0) scale(1.6)" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="-74" y="-30" width="110" height="60" rx="8"/><path d="M-60 -14h8M-44 -14h8M-28 -14h8M-12 -14h8M4 -14h8M20 -14h8M-60 0h8M-44 0h8M-28 0h8M-12 0h8M4 0h8M20 0h8M-48 14h56"/><rect x="48" y="-26" width="30" height="50" rx="15"/><path d="M63 -26v16"/></g>
+  <text x="400.0" y="630.0" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#f3efe7" fill-opacity=".85">Phụ kiện</text>
+  <text x="400.0" y="680.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" letter-spacing="6" fill="#c9a96e">AURUM TECH</text>
+</svg>

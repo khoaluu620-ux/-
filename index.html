@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurum Tech | Cửa hàng công nghệ cao cấp chính hãng</title>
+  <meta name="description" content="Aurum Tech – cửa hàng công nghệ cao cấp: iPhone, Samsung Galaxy, MacBook, iPad, tai nghe Sony, máy ảnh Fujifilm chính hãng. Giao nhanh 2h, trả góp 0%.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content" data-reveal>
+          <p class="eyebrow">Bộ sưu tập Thu – Đông 2026</p>
+          <h1 class="hero__title" id="hero-title">Công nghệ đỉnh cao.<br><em>Phong cách thượng lưu.</em></h1>
+          <p class="hero__lead">Aurum Tech tuyển chọn những thiết bị công nghệ cao cấp chính hãng từ Apple, Samsung, Sony, Dell, Fujifilm… cùng dịch vụ tư vấn riêng và chế độ bảo hành tận tâm.</p>
+          <div class="hero__cta">
+            <a href="products.html" class="btn btn--gold btn--lg">Khám phá ngay <span data-icon="arrow-right"></span></a>
+            <a href="product-detail.html?id=iphone-17-pro-max" class="btn btn--outline btn--lg">iPhone 17 Pro Max</a>
+          </div>
+          <dl class="hero__stats">
+            <div><dt>Hàng chính hãng</dt><dd>100%</dd></div>
+            <div><dt>Khách hàng tin dùng</dt><dd>50K+</dd></div>
+            <div><dt>Showroom toàn quốc</dt><dd>12</dd></div>
+          </dl>
+        </div>
+        <div class="hero__visual" data-reveal>
+          <div class="hero__frame">
+            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=900&q=80" alt="Bộ sưu tập thiết bị công nghệ cao cấp gồm laptop, điện thoại và tai nghe" width="720" height="860" fetchpriority="high" data-fallback="images/hero.svg">
+          </div>
+          <div class="hero__card hero__card--top">
+            <span data-icon="shield"></span>
+            <div><strong>Bảo hành VIP</strong><small>1 đổi 1 trong 30 ngày</small></div>
+          </div>
+          <div class="hero__card hero__card--bottom">
+            <span data-icon="truck"></span>
+            <div><strong>Giao nhanh 2 giờ</strong><small>Nội thành HN &amp; TP.HCM</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="brand-strip" aria-label="Thương hiệu phân phối">
+      <div class="container">
+        <ul class="brand-strip__list">
+          <li>Apple</li><li>Samsung</li><li>Sony</li><li>Dell</li><li>ASUS</li><li>Bose</li><li>Fujifilm</li><li>DJI</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section" aria-labelledby="cat-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Danh mục</p>
+          <h2 class="section-title" id="cat-title">Mua sắm theo danh mục</h2>
+          <p class="section-desc">Từ smartphone flagship đến máy ảnh chuyên nghiệp – mọi thứ bạn cần cho một phong cách sống số tinh tế.</p>
+        </div>
+        <div class="category-grid" id="home-categories"></div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS TABS -->
+    <section class="section section--alt" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-head section-head--row" data-reveal>
+          <div>
+            <p class="eyebrow">Tuyển chọn</p>
+            <h2 class="section-title" id="featured-title">Sản phẩm nổi bật</h2>
+          </div>
+          <div class="pill-tabs" role="tablist" aria-label="Lọc sản phẩm nổi bật">
+            <button class="pill-tab is-active" role="tab" aria-selected="true" aria-controls="home-products" data-home-tab="featured">Nổi bật</button>
+            <button class="pill-tab" role="tab" aria-selected="false" aria-controls="home-products" data-home-tab="new">Mới về</button>
+            <button class="pill-tab" role="tab" aria-selected="false" aria-controls="home-products" data-home-tab="best">Bán chạy</button>
+          </div>
+        </div>
+        <div class="product-grid" id="home-products" role="tabpanel" aria-live="polite"></div>
+        <div class="section-foot">
+          <a href="products.html" class="btn btn--outline">Xem tất cả sản phẩm <span data-icon="arrow-right"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLASH SALE -->
+    <section class="section" aria-labelledby="flash-title">
+      <div class="container">
+        <div class="flash-sale" data-reveal>
+          <div class="flash-sale__head">
+            <div>
+              <p class="eyebrow">Ưu đãi giới hạn</p>
+              <h2 class="section-title" id="flash-title">Flash Sale hôm nay</h2>
+              <p class="section-desc">Giá tốt nhất trong ngày, số lượng có hạn. Ưu đãi kết thúc sau:</p>
+            </div>
+            <div class="countdown" id="countdown" role="timer" aria-label="Thời gian còn lại của Flash Sale">
+              <div class="countdown__item"><span data-cd="h">00</span><small>Giờ</small></div>
+              <div class="countdown__item"><span data-cd="m">00</span><small>Phút</small></div>
+              <div class="countdown__item"><span data-cd="s">00</span><small>Giây</small></div>
+            </div>
+          </div>
+          <div class="product-grid product-grid--4" id="flash-products"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO -->
+    <section class="section section--tight" aria-label="Chương trình khuyến mãi">
+      <div class="container promo-grid">
+        <article class="promo-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80" alt="MacBook đặt trên bàn làm việc" loading="lazy" data-fallback="images/laptop.svg">
+          <div class="promo-card__content">
+            <p class="eyebrow">Dành cho sáng tạo</p>
+            <h3>MacBook Pro M4 Pro</h3>
+            <p>Tặng kèm gói AppleCare+ 1 năm (mô phỏng) khi đặt trước tháng này.</p>
+            <a href="product-detail.html?id=macbook-pro-14-m4-pro" class="link-arrow">Mua ngay <span data-icon="arrow-right"></span></a>
+          </div>
+        </article>
+        <article class="promo-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80" alt="Tai nghe chụp tai cao cấp" loading="lazy" data-fallback="images/am-thanh.svg">
+          <div class="promo-card__content">
+            <p class="eyebrow">Âm thanh Hi-End</p>
+            <h3>Đắm chìm trong âm nhạc</h3>
+            <p>Giảm đến 25% tai nghe Sony, Bose, Marshall. Nhập mã <strong>AURUM10</strong>.</p>
+            <a href="products.html?cat=am-thanh" class="link-arrow">Khám phá <span data-icon="arrow-right"></span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section--alt" aria-labelledby="service-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Đặc quyền Aurum</p>
+          <h2 class="section-title" id="service-title">Trải nghiệm mua sắm đẳng cấp</h2>
+        </div>
+        <ul class="feature-grid">
+          <li class="feature" data-reveal><span class="feature__icon" data-icon="award"></span><h3>Chính hãng 100%</h3><p>Phân phối trực tiếp từ hãng, đầy đủ hoá đơn VAT và tem bảo hành.</p></li>
+          <li class="feature" data-reveal><span class="feature__icon" data-icon="truck"></span><h3>Giao nhanh 2 giờ</h3><p>Miễn phí giao hàng toàn quốc cho đơn từ 5.000.000₫.</p></li>
+          <li class="feature" data-reveal><span class="feature__icon" data-icon="refresh"></span><h3>1 đổi 1 trong 30 ngày</h3><p>Đổi mới ngay nếu sản phẩm có lỗi từ nhà sản xuất.</p></li>
+          <li class="feature" data-reveal><span class="feature__icon" data-icon="headset"></span><h3>Chuyên viên riêng</h3><p>Tư vấn 1:1, hỗ trợ cài đặt và chuyển dữ liệu tận nơi.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" aria-labelledby="review-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Khách hàng nói gì</p>
+          <h2 class="section-title" id="review-title">Niềm tin từ 50.000+ khách hàng</h2>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="testimonial" data-reveal>
+            <span class="stars" style="--rating:5" aria-label="5 trên 5 sao"></span>
+            <blockquote>“Mua MacBook Pro tại showroom Quận 1, nhân viên tư vấn rất kỹ và hỗ trợ chuyển toàn bộ dữ liệu từ máy cũ. Dịch vụ xứng tầm cao cấp.”</blockquote>
+            <figcaption><strong>Nguyễn Minh Anh</strong><span>Kiến trúc sư, TP.HCM</span></figcaption>
+          </figure>
+          <figure class="testimonial" data-reveal>
+            <span class="stars" style="--rating:5" aria-label="5 trên 5 sao"></span>
+            <blockquote>“Đặt Galaxy S25 Ultra buổi sáng, đầu giờ chiều đã nhận máy. Đóng gói sang trọng như một món quà.”</blockquote>
+            <figcaption><strong>Trần Quốc Bảo</strong><span>Doanh nhân, Hà Nội</span></figcaption>
+          </figure>
+          <figure class="testimonial" data-reveal>
+            <span class="stars" style="--rating:4.5" aria-label="4,5 trên 5 sao"></span>
+            <blockquote>“Fujifilm X100VI khan hàng khắp nơi nhưng Aurum giữ hàng cho mình. Chế độ hậu mãi rất chu đáo.”</blockquote>
+            <figcaption><strong>Lê Hoàng Yến</strong><span>Nhiếp ảnh gia, Đà Nẵng</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

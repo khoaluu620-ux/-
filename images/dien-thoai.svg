@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="Điện thoại">
+  <defs>
+    <radialGradient id="bg" cx="70%" cy="25%" r="90%">
+      <stop offset="0" stop-color="#2a2620"/>
+      <stop offset=".55" stop-color="#16161a"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecd8a8"/>
+      <stop offset=".5" stop-color="#c9a96e"/>
+      <stop offset="1" stop-color="#9c7b45"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="400.0" cy="370.0" r="170" fill="none" stroke="#c9a96e" stroke-opacity=".18"/>
+  <circle cx="400.0" cy="370.0" r="230" fill="none" stroke="#c9a96e" stroke-opacity=".08"/>
+  <g transform="translate(400.0 370.0) scale(1.6)" fill="none" stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="-34" y="-62" width="68" height="124" rx="12"/><path d="M-10 48h20"/><circle cx="18" cy="-46" r="4"/></g>
+  <text x="400.0" y="630.0" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#f3efe7" fill-opacity=".85">Điện thoại</text>
+  <text x="400.0" y="680.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" letter-spacing="6" fill="#c9a96e">AURUM TECH</text>
+</svg>

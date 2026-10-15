@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập / Đăng ký | Aurum Tech</title>
+  <meta name="description" content="Đăng nhập hoặc tạo tài khoản Aurum Tech để theo dõi đơn hàng và nhận ưu đãi.">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="login">
+  <a class="skip-link" href="#main">Bỏ qua đến nội dung chính</a>
+  <header class="site-header" id="site-header"></header>
+
+  <main id="main">
+    <section class="section auth-section">
+      <div class="container auth-layout" id="auth-view">
+        <div class="auth-visual">
+          <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?auto=format&fit=crop&w=900&q=80" alt="Bàn làm việc với thiết bị công nghệ cao cấp" loading="lazy" data-fallback="images/hero.svg">
+          <div class="auth-visual__content">
+            <p class="eyebrow">Aurum Privilege</p>
+            <h2>Thành viên được hưởng đặc quyền riêng</h2>
+            <ul class="check-list">
+              <li><span data-icon="check"></span>Theo dõi lịch sử đơn hàng</li>
+              <li><span data-icon="check"></span>Ưu đãi sinh nhật &amp; tích điểm</li>
+              <li><span data-icon="check"></span>Thanh toán nhanh hơn</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="auth-card">
+          <div class="auth-tabs" role="tablist" aria-label="Đăng nhập hoặc đăng ký">
+            <button type="button" class="auth-tab is-active" role="tab" id="tab-login" aria-selected="true" aria-controls="login-panel" data-auth-tab="login">Đăng nhập</button>
+            <button type="button" class="auth-tab" role="tab" id="tab-register" aria-selected="false" aria-controls="register-panel" data-auth-tab="register" tabindex="-1">Đăng ký</button>
+          </div>
+
+          <div class="auth-panel" id="login-panel" role="tabpanel" aria-labelledby="tab-login">
+            <h1 class="auth-card__title">Chào mừng trở lại</h1>
+            <p class="auth-card__sub">Đăng nhập để tiếp tục trải nghiệm mua sắm.</p>
+            <form id="login-form" novalidate>
+              <div class="field">
+                <label for="lg-email">Email</label>
+                <input class="input" id="lg-email" name="email" type="email" autocomplete="email" data-validate="required email" data-label="email" aria-describedby="lg-email-error">
+                <p class="field__error" id="lg-email-error"></p>
+              </div>
+              <div class="field">
+                <label for="lg-password">Mật khẩu</label>
+                <div class="input-password">
+                  <input class="input" id="lg-password" name="password" type="password" autocomplete="current-password" data-validate="required" data-label="mật khẩu" aria-describedby="lg-password-error">
+                  <button type="button" class="icon-btn" data-toggle-password aria-label="Hiện mật khẩu"><span data-icon="eye"></span></button>
+                </div>
+                <p class="field__error" id="lg-password-error"></p>
+              </div>
+              <div class="auth-row">
+                <label class="check"><input type="checkbox" name="remember" checked><span>Ghi nhớ đăng nhập</span></label>
+                <button type="button" class="link-btn" id="forgot-password">Quên mật khẩu?</button>
+              </div>
+              <p class="form-alert" id="login-alert" role="alert" hidden></p>
+              <button type="submit" class="btn btn--gold btn--lg btn--block">Đăng nhập</button>
+            </form>
+            <div class="divider"><span>hoặc</span></div>
+            <div class="social-login">
+              <button type="button" class="btn btn--outline" data-social="Google">Google</button>
+              <button type="button" class="btn btn--outline" data-social="Apple">Apple</button>
+            </div>
+          </div>
+
+          <div class="auth-panel" id="register-panel" role="tabpanel" aria-labelledby="tab-register" hidden>
+            <h1 class="auth-card__title">Tạo tài khoản</h1>
+            <p class="auth-card__sub">Chỉ mất 30 giây để trở thành thành viên Aurum.</p>
+            <form id="register-form" novalidate>
+              <div class="field">
+                <label for="rg-name">Họ và tên</label>
+                <input class="input" id="rg-name" name="name" type="text" autocomplete="name" data-validate="required" data-label="họ và tên" aria-describedby="rg-name-error">
+                <p class="field__error" id="rg-name-error"></p>
+              </div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="rg-email">Email</label>
+                  <input class="input" id="rg-email" name="email" type="email" autocomplete="email" data-validate="required email" data-label="email" aria-describedby="rg-email-error">
+                  <p class="field__error" id="rg-email-error"></p>
+                </div>
+                <div class="field">
+                  <label for="rg-phone">Số điện thoại</label>
+                  <input class="input" id="rg-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" data-validate="required phone" data-label="số điện thoại" aria-describedby="rg-phone-error">
+                  <p class="field__error" id="rg-phone-error"></p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="rg-password">Mật khẩu</label>
+                <div class="input-password">
+                  <input class="input" id="rg-password" name="password" type="password" autocomplete="new-password" data-validate="required password" data-label="mật khẩu" aria-describedby="rg-password-error rg-strength-text">
+                  <button type="button" class="icon-btn" data-toggle-password aria-label="Hiện mật khẩu"><span data-icon="eye"></span></button>
+                </div>
+                <div class="strength" aria-hidden="true"><span id="rg-strength-bar"></span></div>
+                <p class="field__hint" id="rg-strength-text">Tối thiểu 8 ký tự, gồm chữ và số.</p>
+                <p class="field__error" id="rg-password-error"></p>
+              </div>
+              <div class="field">
+                <label for="rg-confirm">Nhập lại mật khẩu</label>
+                <input class="input" id="rg-confirm" name="confirm" type="password" autocomplete="new-password" data-validate="required match" data-match="#rg-password" data-label="mật khẩu xác nhận" aria-describedby="rg-confirm-error">
+                <p class="field__error" id="rg-confirm-error"></p>
+              </div>
+              <div class="field field--check">
+                <label class="check"><input type="checkbox" name="agree" id="rg-agree" data-validate="required" aria-describedby="rg-agree-error"><span>Tôi đồng ý với điều khoản sử dụng và chính sách bảo mật.</span></label>
+                <p class="field__error" id="rg-agree-error"></p>
+              </div>
+              <p class="form-alert" id="register-alert" role="alert" hidden></p>
+              <button type="submit" class="btn btn--gold btn--lg btn--block">Tạo tài khoản</button>
+            </form>
+          </div>
+          <p class="form-hint">Tài khoản mô phỏng: dữ liệu chỉ lưu trong LocalStorage của trình duyệt này, chưa có xác thực máy chủ.</p>
+        </div>
+      </div>
+
+      <div class="container" id="account-view" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
