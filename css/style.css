@@ -2399,3 +2399,94 @@ h1, h2, h3, h4 {
 .grid--fit-240 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .grid--fit-260 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .grid--cats { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+
+/* ---------- 11. SLIDER BANNER ĐẦU TRANG (kéo bằng chuột / vuốt) ---------- */
+.hero-slider {
+  padding-block: var(--space-10) var(--space-6);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.hero-slider__viewport {
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y; /* vẫn cho phép cuộn dọc trên điện thoại */
+}
+
+.hero-slider__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.hero-slider__track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-slider__track.is-dragging {
+  transition: none; /* khi kéo, slide đi theo chuột ngay lập tức */
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.hero-slide .hero__image img {
+  pointer-events: none; /* không cho ảnh chặn thao tác kéo */
+}
+
+.hero-slider__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.hero-slider__arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.hero-slider__arrow:hover {
+  background: var(--color-primary);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.hero-slider__dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.hero-slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: #cbd5e1;
+  transition: width var(--transition), background-color var(--transition);
+}
+
+.hero-slider__dot.is-active {
+  width: 28px;
+  background: var(--color-primary);
+}
+
+@media (max-width: 480px) {
+  .hero-slider__nav {
+    gap: var(--space-3);
+  }
+
+  .hero-slider__arrow {
+    width: 38px;
+    height: 38px;
+  }
+}

@@ -72,25 +72,80 @@
 
   <main>
     <!-- Hero banner -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <span class="hero__tag">⚡ Công nghệ mới 2026</span>
-          <h1 class="hero__title" id="hero-title">Công nghệ đỉnh cao, <span>giá tốt</span> mỗi ngày</h1>
-          <p class="hero__desc">Laptop, tai nghe, đồng hồ thông minh và phụ kiện gaming chính hãng. Bảo hành 12 tháng, giao nhanh toàn quốc.</p>
-          <div class="hero__actions">
-            <a href="products.html" class="btn btn--primary">Mua ngay <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="products.html?category=am-thanh" class="btn btn--outline">Khám phá âm thanh</a>
-          </div>
-          <div class="hero__stats">
-            <div><strong>10K+</strong><span>Khách hàng tin dùng</span></div>
-            <div><strong>500+</strong><span>Sản phẩm chính hãng</span></div>
-            <div><strong>4.8/5</strong><span>Đánh giá trung bình</span></div>
-          </div>
+    <!-- Banner đầu trang dạng slider: kéo bằng chuột (hoặc vuốt trên điện thoại), có nút mũi tên và chấm điều hướng -->
+    <section class="hero hero-slider" id="hero-slider" aria-roledescription="carousel" aria-label="Banner nổi bật">
+      <div class="hero-slider__viewport">
+        <div class="hero-slider__track" id="hero-track">
+
+          <article class="hero-slide" role="group" aria-roledescription="slide" aria-label="1 trên 3">
+            <div class="container hero__inner">
+              <div class="hero__content">
+                <span class="hero__tag">⚡ Công nghệ mới 2026</span>
+                <h1 class="hero__title" id="hero-title">Công nghệ đỉnh cao, <span>giá tốt</span> mỗi ngày</h1>
+                <p class="hero__desc">Laptop, tai nghe, đồng hồ thông minh và phụ kiện gaming chính hãng. Bảo hành 12 tháng, giao nhanh toàn quốc.</p>
+                <div class="hero__actions">
+                  <a href="products.html" class="btn btn--primary">Mua ngay <i class="fa-solid fa-arrow-right"></i></a>
+                  <a href="products.html?category=am-thanh" class="btn btn--outline">Khám phá âm thanh</a>
+                </div>
+                <div class="hero__stats">
+                  <div><strong>10K+</strong><span>Khách hàng tin dùng</span></div>
+                  <div><strong>500+</strong><span>Sản phẩm chính hãng</span></div>
+                  <div><strong>4.8/5</strong><span>Đánh giá trung bình</span></div>
+                </div>
+              </div>
+              <div class="hero__image">
+                <img src="images/hero.svg" alt="Minh họa các sản phẩm công nghệ nổi bật: tai nghe, đồng hồ thông minh và laptop" draggable="false">
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 trên 3">
+            <div class="container hero__inner">
+              <div class="hero__content">
+                <span class="hero__tag">🔥 Flash Sale tuần này</span>
+                <h2 class="hero__title">Laptop Ultrabook 14 inch <span>giảm 20%</span></h2>
+                <p class="hero__desc">Chip thế hệ mới, RAM 16GB, SSD 512GB và pin 12 giờ. Số lượng có hạn, chỉ áp dụng trong tuần này.</p>
+                <div class="hero__actions">
+                  <a href="products.html?category=may-tinh" class="btn btn--accent">Xem laptop <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="hero__image">
+                <img src="images/p07.svg" alt="Laptop Ultrabook 14 inch" draggable="false">
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 trên 3">
+            <div class="container hero__inner">
+              <div class="hero__content">
+                <span class="hero__tag">🎮 Dành cho game thủ</span>
+                <h2 class="hero__title">Màn hình gaming 165Hz <span>phản hồi 1ms</span></h2>
+                <p class="hero__desc">Tấm nền IPS 2K, hỗ trợ FreeSync, hình ảnh mượt mà và sắc nét cho mọi trận đấu.</p>
+                <div class="hero__actions">
+                  <a href="products.html?category=gaming" class="btn btn--primary">Khám phá gaming <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+              </div>
+              <div class="hero__image">
+                <img src="images/p12.svg" alt="Màn hình gaming 27 inch 165Hz" draggable="false">
+              </div>
+            </div>
+          </article>
+
         </div>
-        <div class="hero__image">
-          <img src="images/hero.svg" alt="Minh họa các sản phẩm công nghệ nổi bật: tai nghe, đồng hồ thông minh và laptop">
+      </div>
+
+      <div class="hero-slider__nav">
+        <button type="button" class="hero-slider__arrow" data-hero-prev aria-label="Slide trước">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="hero-slider__dots">
+          <button type="button" class="hero-slider__dot is-active" data-hero-dot="0" aria-label="Chuyển tới slide 1"></button>
+          <button type="button" class="hero-slider__dot" data-hero-dot="1" aria-label="Chuyển tới slide 2"></button>
+          <button type="button" class="hero-slider__dot" data-hero-dot="2" aria-label="Chuyển tới slide 3"></button>
         </div>
+        <button type="button" class="hero-slider__arrow" data-hero-next aria-label="Slide sau">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
       </div>
     </section>
 

@@ -488,7 +488,106 @@ function startCountdown() {
   setInterval(tick, 1000);
 }
 
+/* Slider banner đầu trang: kéo bằng chuột hoặc vuốt, tự chạy, có nút và chấm điều hướng */
+function initHeroSlider() {
+  const slider = $('#hero-slider');
+  if (!slider) return;
+
+  const viewport = $('.hero-slider__viewport', slider);
+  const track = $('#hero-track', slider);
+  const slides = $$('.hero-slide', slider);
+  const dots = $$('[data-hero-dot]', slider);
+  const AUTOPLAY_MS = 6000;
+  const DRAG_THRESHOLD = 0.15; // kéo quá 15% chiều rộng thì chuyển slide
+
+  let index = 0;
+  let startX = 0;
+  let dragX = 0;
+  let dragging = false;
+  let moved = false;
+  let timer = null;
+
+  // Dịch track theo chỉ số slide (tính bằng pixel để khớp chiều rộng thực tế)
+  const offsetFor = (i) => -i * viewport.clientWidth;
+  const show = (i, animate = true) => {
+    index = (i + slides.length) % slides.length;
+    track.classList.toggle('is-dragging', !animate);
+    track.style.transform = `translate3d(${offsetFor(index)}px, 0, 0)`;
+    dots.forEach((dot, n) => {
+      dot.classList.toggle('is-active', n === index);
+      dot.setAttribute('aria-current', String(n === index));
+    });
+  };
+
+  const restartAutoplay = () => {
+    clearInterval(timer);
+    timer = setInterval(() => show(index + 1), AUTOPLAY_MS);
+  };
+
+  // Kéo: dùng Pointer Events nên hoạt động cho cả chuột và cảm ứng
+  viewport.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    dragging = true;
+    moved = false;
+    startX = event.clientX;
+    dragX = 0;
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add('is-dragging');
+    track.classList.add('is-dragging');
+    clearInterval(timer);
+  });
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!dragging) return;
+    dragX = event.clientX - startX;
+    if (Math.abs(dragX) > 5) moved = true;
+    track.style.transform = `translate3d(${offsetFor(index) + dragX}px, 0, 0)`;
+  });
+
+  const endDrag = () => {
+    if (!dragging) return;
+    dragging = false;
+    viewport.classList.remove('is-dragging');
+    const threshold = viewport.clientWidth * DRAG_THRESHOLD;
+    if (dragX < -threshold) show(index + 1);
+    else if (dragX > threshold) show(index - 1);
+    else show(index);
+    restartAutoplay();
+  };
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('pointerleave', endDrag);
+
+  // Sau khi kéo, không để thao tác thả chuột mở đường dẫn trong slide
+  viewport.addEventListener('click', (event) => {
+    if (moved) {
+      event.preventDefault();
+      event.stopPropagation();
+      moved = false;
+    }
+  }, true);
+  viewport.addEventListener('dragstart', (event) => event.preventDefault());
+
+  // Nút mũi tên và chấm điều hướng
+  $('[data-hero-prev]', slider).addEventListener('click', () => { show(index - 1); restartAutoplay(); });
+  $('[data-hero-next]', slider).addEventListener('click', () => { show(index + 1); restartAutoplay(); });
+  dots.forEach((dot) => dot.addEventListener('click', () => {
+    show(Number(dot.dataset.heroDot));
+    restartAutoplay();
+  }));
+
+  // Tạm dừng tự chạy khi người dùng đưa chuột vào banner
+  slider.addEventListener('mouseenter', () => clearInterval(timer));
+  slider.addEventListener('mouseleave', restartAutoplay);
+
+  window.addEventListener('resize', () => show(index, false));
+
+  show(0, false);
+  restartAutoplay();
+}
+
 function initHome() {
+  initHeroSlider();
   renderCategoryCards($('#category-grid'));
   // Sản phẩm nổi bật: nhãn HOT
   renderProducts($('#featured-grid'), PRODUCTS.filter((p) => p.badge === 'hot').slice(0, 4));
