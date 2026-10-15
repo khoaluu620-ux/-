@@ -2377,3 +2377,25 @@ h1, h2, h3, h4 {
     padding: var(--space-2);
   }
 }
+
+/* ---------- 10. TIỆN ÍCH BỔ SUNG (thay cho style inline trong HTML) ---------- */
+.mt-5 { margin-top: var(--space-6); }
+.mb-5 { margin-bottom: var(--space-6); }
+.justify-center { justify-content: center; }
+.section--end { padding-bottom: var(--space-10); }
+.label-plain { padding: 0; }
+.input-full { width: 100%; }
+.toolbar--flush { margin: 0; }
+.detail-root { padding-block: var(--space-6) 0; }
+.title-sm { font-size: 1.4rem; margin-bottom: var(--space-6); }
+.btn--sm { padding: 6px 12px; font-size: 0.85rem; }
+.btn--lg { padding: 16px; }
+.link-more--small { margin-top: var(--space-4); font-size: 0.9rem; }
+.icon-google { color: #ea4335; }
+.icon-facebook { color: #1877f2; }
+
+/* Lưới tự co giãn theo chiều rộng tối thiểu của thẻ */
+.grid--fit-220 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.grid--fit-240 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid--fit-260 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.grid--cats { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
