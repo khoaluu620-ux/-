@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Danh sách sản phẩm NovaShop: tìm kiếm, lọc theo danh mục và khoảng giá, sắp xếp theo giá và đánh giá.">
+  <title>Sản phẩm | NovaShop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="products">
+
+  <div class="announce-bar" id="announce-bar">
+    <p>🎉 Freeship cho đơn từ <strong>500.000 ₫</strong> · Giảm đến <strong>50%</strong> mùa cuối năm</p>
+    <button type="button" class="announce-bar__close" id="announce-close" aria-label="Đóng thông báo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NovaShop - Trang chủ">
+        <i class="fa-solid fa-bag-shopping"></i> NovaShop
+      </a>
+      <form class="search-form" action="products.html" method="get" role="search">
+        <label for="header-search" class="visually-hidden">Tìm sản phẩm</label>
+        <input type="search" id="header-search" name="q" placeholder="Tìm sản phẩm bạn cần...">
+        <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="header-actions">
+        <a href="login.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user"></i><span class="icon-btn__label">Tài khoản</span>
+        </a>
+        <a href="products.html?wishlist=1" class="icon-btn" aria-label="Yêu thích">
+          <i class="fa-regular fa-heart"></i><span class="icon-btn__label">Yêu thích</span>
+          <span class="badge" data-wish-count>0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i><span class="icon-btn__label">Giỏ hàng</span>
+          <span class="badge" data-cart-count>0</span>
+        </a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Menu chính">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a><span>/</span>Sản phẩm
+        </nav>
+        <h1 id="page-title">Tất cả sản phẩm</h1>
+      </div>
+    </section>
+
+    <div class="container shop-layout">
+      <!-- Bộ lọc: danh mục, giá, yêu thích -->
+      <aside class="filters" aria-label="Bộ lọc sản phẩm">
+        <div class="toolbar" style="margin:0;">
+          <h2>Bộ lọc</h2>
+          <button type="button" class="btn btn--outline" id="reset-filters" style="padding:6px 12px;font-size:.85rem;">Xóa lọc</button>
+        </div>
+
+        <div class="filter-group">
+          <h3><label for="filter-search">Tìm theo tên</label></h3>
+          <input type="search" id="filter-search" class="select" placeholder="Nhập tên sản phẩm..." style="width:100%;">
+        </div>
+
+        <div class="filter-group">
+          <h3>Danh mục</h3>
+          <label class="radio-item"><input type="radio" name="category" value="" checked> <span>Tất cả</span></label>
+          <label class="radio-item"><input type="radio" name="category" value="dien-tu"> <span>Điện tử</span></label>
+          <label class="radio-item"><input type="radio" name="category" value="thoi-trang"> <span>Thời trang</span></label>
+          <label class="radio-item"><input type="radio" name="category" value="gia-dung"> <span>Gia dụng</span></label>
+          <label class="radio-item"><input type="radio" name="category" value="lam-dep"> <span>Làm đẹp</span></label>
+          <label class="radio-item"><input type="radio" name="category" value="the-thao"> <span>Thể thao</span></label>
+        </div>
+
+        <div class="filter-group">
+          <h3>Khoảng giá</h3>
+          <div class="range-slider">
+            <div class="range-track"><div class="range-track__fill" id="range-fill"></div></div>
+            <input type="range" id="price-min" min="0" max="3000000" step="50000" value="0" aria-label="Giá tối thiểu">
+            <input type="range" id="price-max" min="0" max="3000000" step="50000" value="3000000" aria-label="Giá tối đa">
+          </div>
+          <div class="range-values">
+            <span id="price-min-text">0 ₫</span>
+            <span id="price-max-text">3.000.000 ₫</span>
+          </div>
+        </div>
+
+        <label class="check-item">
+          <input type="checkbox" id="filter-wishlist"> <span>Chỉ hiện sản phẩm yêu thích</span>
+        </label>
+      </aside>
+
+      <!-- Kết quả: thanh công cụ, lưới sản phẩm -->
+      <div class="products-main">
+        <div class="toolbar">
+          <p class="toolbar__count" id="result-count" aria-live="polite">Đang tải...</p>
+          <label>
+            <span class="visually-hidden">Sắp xếp</span>
+            <select id="sort-select" class="select" aria-label="Sắp xếp sản phẩm">
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá: thấp đến cao</option>
+              <option value="price-desc">Giá: cao đến thấp</option>
+              <option value="rating">Đánh giá cao nhất</option>
+              <option value="name">Tên A - Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="grid" id="product-grid"></div>
+
+        <div class="empty-state" id="empty-state" hidden>
+          <i class="fa-solid fa-box-open"></i>
+          <h2>Không tìm thấy sản phẩm phù hợp</h2>
+          <p>Thử thay đổi từ khóa hoặc khoảng giá để xem thêm lựa chọn.</p>
+          <a href="products.html" class="btn btn--primary">Xóa bộ lọc</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fa-solid fa-bag-shopping"></i> NovaShop</a>
+        <p>Điểm đến mua sắm trực tuyến tin cậy với hàng nghìn sản phẩm chính hãng và dịch vụ hậu mãi tận tâm.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Danh mục sản phẩm">
+        <h3>Danh mục</h3>
+        <ul>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Hỗ trợ khách hàng">
+        <h3>Hỗ trợ</h3>
+        <ul>
+          <li><a href="contact.html#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</li>
+          <li><i class="fa-solid fa-phone"></i> 0900 000 000</li>
+          <li><i class="fa-solid fa-envelope"></i> hotro@novashop.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 NovaShop. Bản quyền thuộc về NovaShop.</p>
+    </div>
+  </footer>
+
+  <div class="float-stack">
+    <a href="tel:0900000000" class="float-btn float-btn--phone" aria-label="Gọi điện cho NovaShop">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me/0900000000" class="float-btn float-btn--zalo" aria-label="Chat qua Zalo" target="_blank" rel="noopener">Zalo</a>
+    <a href="https://m.me/novashop" class="float-btn float-btn--messenger" aria-label="Chat qua Messenger" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <button type="button" class="float-btn float-btn--top" id="back-to-top" aria-label="Lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

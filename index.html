@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaShop - Mua sắm điện tử, thời trang, gia dụng và làm đẹp với giá tốt mỗi ngày.">
+  <title>NovaShop | Mua sắm trực tuyến giá tốt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- Thanh thông báo khuyến mãi (có nút đóng) -->
+  <div class="announce-bar" id="announce-bar">
+    <p>🎉 Freeship cho đơn từ <strong>500.000 ₫</strong> · Giảm đến <strong>50%</strong> mùa cuối năm</p>
+    <button type="button" class="announce-bar__close" id="announce-close" aria-label="Đóng thông báo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <!-- Header: logo, tìm kiếm, tài khoản, yêu thích, giỏ hàng -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NovaShop - Trang chủ">
+        <i class="fa-solid fa-bag-shopping"></i> NovaShop
+      </a>
+
+      <form class="search-form" action="products.html" method="get" role="search">
+        <label for="header-search" class="visually-hidden">Tìm sản phẩm</label>
+        <input type="search" id="header-search" name="q" placeholder="Tìm sản phẩm bạn cần...">
+        <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+
+      <div class="header-actions">
+        <a href="login.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user"></i><span class="icon-btn__label">Tài khoản</span>
+        </a>
+        <a href="products.html?wishlist=1" class="icon-btn" aria-label="Yêu thích">
+          <i class="fa-regular fa-heart"></i><span class="icon-btn__label">Yêu thích</span>
+          <span class="badge" data-wish-count>0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i><span class="icon-btn__label">Giỏ hàng</span>
+          <span class="badge" data-cart-count>0</span>
+        </a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Điều hướng danh mục -->
+    <nav class="main-nav" id="main-nav" aria-label="Menu chính">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero banner -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="hero__tag">✨ Bộ sưu tập mới 2026</span>
+          <h1 class="hero__title" id="hero-title">Mua sắm thông minh, <span>sống trọn vẹn</span> mỗi ngày</h1>
+          <p class="hero__desc">Hàng nghìn sản phẩm chính hãng từ điện tử, thời trang đến gia dụng. Giá tốt mỗi ngày, giao nhanh toàn quốc.</p>
+          <div class="hero__actions">
+            <a href="products.html" class="btn btn--primary">Mua ngay <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="products.html?category=dien-tu" class="btn btn--outline">Khám phá điện tử</a>
+          </div>
+          <div class="hero__stats">
+            <div><strong>10K+</strong><span>Khách hàng tin dùng</span></div>
+            <div><strong>500+</strong><span>Sản phẩm chính hãng</span></div>
+            <div><strong>4.8/5</strong><span>Đánh giá trung bình</span></div>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="images/hero.svg" alt="Minh họa các sản phẩm nổi bật: tai nghe, đồng hồ thông minh và nồi chiên không dầu">
+        </div>
+      </div>
+    </section>
+
+    <!-- Danh mục nổi bật -->
+    <section class="section container" aria-labelledby="category-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="category-title">Danh mục nổi bật</h2>
+          <p class="section-subtitle">Tìm nhanh sản phẩm theo nhu cầu của bạn</p>
+        </div>
+      </div>
+      <div class="grid" id="category-grid" style="grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));">
+        <!-- Được tạo bởi js/script.js -->
+      </div>
+    </section>
+
+    <!-- Sản phẩm nổi bật -->
+    <section class="section section--surface" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="featured-title">Sản phẩm nổi bật</h2>
+            <p class="section-subtitle">Những lựa chọn được khách hàng yêu thích nhất</p>
+          </div>
+          <a href="products.html" class="link-more">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="grid" id="featured-grid"></div>
+      </div>
+    </section>
+
+    <!-- Banner khuyến mãi -->
+    <section class="section container" aria-labelledby="promo-title">
+      <div class="promo reveal">
+        <div>
+          <h2 class="promo__title" id="promo-title">Flash Sale <em>giảm đến 50%</em></h2>
+          <p>Ưu đãi kết thúc trong ngày hôm nay. Đừng bỏ lỡ những deal hời!</p>
+          <div class="countdown" id="countdown" aria-label="Thời gian còn lại của chương trình">
+            <div><strong id="cd-hours">00</strong><span>Giờ</span></div>
+            <div><strong id="cd-minutes">00</strong><span>Phút</span></div>
+            <div><strong id="cd-seconds">00</strong><span>Giây</span></div>
+          </div>
+          <a href="products.html" class="btn btn--accent">Săn deal ngay</a>
+        </div>
+        <div class="promo__image">
+          <img src="images/promo.svg" alt="Biểu tượng nhãn giảm giá Flash Sale">
+        </div>
+      </div>
+    </section>
+
+    <!-- Sản phẩm mới -->
+    <section class="section container" aria-labelledby="new-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="new-title">Hàng mới về</h2>
+          <p class="section-subtitle">Cập nhật xu hướng mới nhất tuần này</p>
+        </div>
+        <a href="products.html" class="link-more">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="grid" id="new-grid"></div>
+    </section>
+
+    <!-- Sản phẩm bán chạy -->
+    <section class="section section--surface" aria-labelledby="best-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="best-title">Bán chạy nhất</h2>
+            <p class="section-subtitle">Top sản phẩm được mua nhiều nhất</p>
+          </div>
+          <a href="products.html" class="link-more">Xem tất cả <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="grid" id="best-grid"></div>
+      </div>
+    </section>
+
+    <!-- Lợi ích khi mua hàng -->
+    <section class="section container" aria-labelledby="benefit-title">
+      <div class="section-header text-center" style="justify-content:center;">
+        <div>
+          <h2 class="section-title" id="benefit-title">Vì sao chọn NovaShop?</h2>
+          <p class="section-subtitle">Cam kết đồng hành cùng bạn trên mọi đơn hàng</p>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <article class="benefit reveal">
+          <div class="benefit__icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Giao hàng nhanh</h3>
+          <p>Giao trong 1-3 ngày trên toàn quốc. Miễn phí vận chuyển đơn từ 500.000 ₫.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon"><i class="fa-solid fa-rotate-left"></i></div>
+          <h3>Đổi trả dễ dàng</h3>
+          <p>Đổi trả miễn phí trong vòng 7 ngày nếu sản phẩm lỗi hoặc không đúng mô tả.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Bảo hành chính hãng</h3>
+          <p>Bảo hành 12 tháng với sản phẩm điện tử, hỗ trợ kỹ thuật tận tâm.</p>
+        </article>
+        <article class="benefit reveal">
+          <div class="benefit__icon"><i class="fa-solid fa-credit-card"></i></div>
+          <h3>Thanh toán an toàn</h3>
+          <p>Hỗ trợ thanh toán khi nhận hàng (COD), chuyển khoản và thẻ tín dụng.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Đánh giá khách hàng -->
+    <section class="section section--surface" aria-labelledby="testimonial-title">
+      <div class="container">
+        <div class="section-header text-center" style="justify-content:center;">
+          <div>
+            <h2 class="section-title" id="testimonial-title">Khách hàng nói gì?</h2>
+            <p class="section-subtitle">Hơn 10.000 khách hàng đã tin tưởng NovaShop</p>
+          </div>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+          <article class="testimonial reveal">
+            <span class="testimonial__quote"><i class="fa-solid fa-quote-left"></i></span>
+            <p>"Đặt tai nghe buổi sáng, chiều đã nhận được hàng. Âm thanh chống ồn rất tốt, đúng như mô tả."</p>
+            <div class="testimonial__author">
+              <span class="avatar">M</span>
+              <div><strong>Minh Anh</strong><small>Hà Nội</small></div>
+            </div>
+          </article>
+          <article class="testimonial reveal">
+            <span class="testimonial__quote"><i class="fa-solid fa-quote-left"></i></span>
+            <p>"Nồi chiên không dầu dùng rất bền, dễ vệ sinh. Shop tư vấn nhiệt tình và đóng gói cẩn thận."</p>
+            <div class="testimonial__author">
+              <span class="avatar">H</span>
+              <div><strong>Hoàng Nam</strong><small>TP. Hồ Chí Minh</small></div>
+            </div>
+          </article>
+          <article class="testimonial reveal">
+            <span class="testimonial__quote"><i class="fa-solid fa-quote-left"></i></span>
+            <p>"Serum dịu nhẹ, dùng một tháng thấy da sáng hơn rõ rệt. Mình sẽ mua lại lần nữa."</p>
+            <div class="testimonial__author">
+              <span class="avatar">T</span>
+              <div><strong>Thu Trang</strong><small>Đà Nẵng</small></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Đăng ký nhận tin khuyến mãi -->
+    <section class="section container" aria-labelledby="newsletter-title">
+      <div class="newsletter reveal">
+        <h2 id="newsletter-title">Đăng ký nhận ưu đãi độc quyền</h2>
+        <p>Nhận mã giảm giá 10% cho đơn hàng đầu tiên và cập nhật sản phẩm mới mỗi tuần.</p>
+        <form class="newsletter__form" id="newsletter-form" data-validate novalidate>
+          <div class="form-group">
+            <label for="newsletter-email" class="visually-hidden">Email của bạn</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Nhập email của bạn" required data-rule="email">
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--light">Đăng ký</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: thông tin doanh nghiệp, danh mục, hỗ trợ, mạng xã hội -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fa-solid fa-bag-shopping"></i> NovaShop</a>
+        <p>Điểm đến mua sắm trực tuyến tin cậy với hàng nghìn sản phẩm chính hãng và dịch vụ hậu mãi tận tâm.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Danh mục sản phẩm">
+        <h3>Danh mục</h3>
+        <ul>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Hỗ trợ khách hàng">
+        <h3>Hỗ trợ</h3>
+        <ul>
+          <li><a href="contact.html#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</li>
+          <li><i class="fa-solid fa-phone"></i> 0900 000 000</li>
+          <li><i class="fa-solid fa-envelope"></i> hotro@novashop.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 NovaShop. Bản quyền thuộc về NovaShop.</p>
+    </div>
+  </footer>
+
+  <!-- Nút nổi cố định: Điện thoại, Zalo, Messenger, Lên đầu trang -->
+  <div class="float-stack">
+    <a href="tel:0900000000" class="float-btn float-btn--phone" aria-label="Gọi điện cho NovaShop">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me/0900000000" class="float-btn float-btn--zalo" aria-label="Chat qua Zalo" target="_blank" rel="noopener">Zalo</a>
+    <a href="https://m.me/novashop" class="float-btn float-btn--messenger" aria-label="Chat qua Messenger" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <button type="button" class="float-btn float-btn--top" id="back-to-top" aria-label="Lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <!-- Vùng hiển thị thông báo -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

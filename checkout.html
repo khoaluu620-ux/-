@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thanh toán đơn hàng NovaShop: nhập thông tin giao hàng và chọn phương thức thanh toán.">
+  <title>Thanh toán | NovaShop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+
+  <div class="announce-bar" id="announce-bar">
+    <p>🎉 Freeship cho đơn từ <strong>500.000 ₫</strong> · Giảm đến <strong>50%</strong> mùa cuối năm</p>
+    <button type="button" class="announce-bar__close" id="announce-close" aria-label="Đóng thông báo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NovaShop - Trang chủ">
+        <i class="fa-solid fa-bag-shopping"></i> NovaShop
+      </a>
+      <form class="search-form" action="products.html" method="get" role="search">
+        <label for="header-search" class="visually-hidden">Tìm sản phẩm</label>
+        <input type="search" id="header-search" name="q" placeholder="Tìm sản phẩm bạn cần...">
+        <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="header-actions">
+        <a href="login.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user"></i><span class="icon-btn__label">Tài khoản</span>
+        </a>
+        <a href="products.html?wishlist=1" class="icon-btn" aria-label="Yêu thích">
+          <i class="fa-regular fa-heart"></i><span class="icon-btn__label">Yêu thích</span>
+          <span class="badge" data-wish-count>0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i><span class="icon-btn__label">Giỏ hàng</span>
+          <span class="badge" data-cart-count>0</span>
+        </a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Menu chính">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a><span>/</span><a href="cart.html">Giỏ hàng</a><span>/</span>Thanh toán
+        </nav>
+        <h1>Thanh toán</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Giỏ hàng trống -->
+      <div class="empty-state" id="checkout-empty" hidden>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h2>Giỏ hàng đang trống</h2>
+        <p>Thêm sản phẩm vào giỏ trước khi thanh toán nhé.</p>
+        <a href="products.html" class="btn btn--primary">Mua sắm ngay</a>
+      </div>
+
+      <!-- Đặt hàng thành công -->
+      <div class="success-box" id="order-success" hidden>
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>Đặt hàng thành công!</h2>
+        <p>Mã đơn hàng của bạn là <strong id="order-code"></strong>. Chúng tôi sẽ liên hệ xác nhận trong thời gian sớm nhất.</p>
+        <a href="index.html" class="btn btn--primary">Về trang chủ</a>
+      </div>
+
+      <div class="checkout-layout" id="checkout-layout" hidden>
+        <!-- Form thông tin giao hàng -->
+        <form class="checkout-form" id="checkout-form" data-validate novalidate>
+          <section class="form-section" aria-labelledby="shipping-title">
+            <h2 id="shipping-title"><i class="fa-solid fa-truck-fast"></i> Thông tin giao hàng</h2>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="full-name">Họ và tên <span>*</span></label>
+                <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="phone">Số điện thoại <span>*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" required data-rule="phone" placeholder="0900 000 000">
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" data-rule="email">
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="city">Tỉnh / Thành phố <span>*</span></label>
+                <select id="city" name="city" required>
+                  <option value="">-- Chọn tỉnh / thành --</option>
+                  <option>TP. Hồ Chí Minh</option>
+                  <option>Hà Nội</option>
+                  <option>Đà Nẵng</option>
+                  <option>Cần Thơ</option>
+                  <option>Hải Phòng</option>
+                </select>
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group form-group--full">
+                <label for="address">Địa chỉ nhận hàng <span>*</span></label>
+                <input type="text" id="address" name="address" autocomplete="street-address" required placeholder="Số nhà, tên đường, phường/xã">
+                <span class="form-error" aria-live="polite"></span>
+              </div>
+              <div class="form-group form-group--full">
+                <label for="note">Ghi chú cho đơn hàng</label>
+                <textarea id="note" name="note" placeholder="Ví dụ: giao giờ hành chính"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="payment-title">
+            <h2 id="payment-title"><i class="fa-solid fa-credit-card"></i> Phương thức thanh toán</h2>
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod" checked>
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span><strong>Thanh toán khi nhận hàng (COD)</strong><br><small>Trả tiền mặt khi nhận được hàng</small></span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="bank">
+                <i class="fa-solid fa-building-columns"></i>
+                <span><strong>Chuyển khoản ngân hàng</strong><br><small>Thông tin tài khoản sẽ gửi qua email</small></span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card">
+                <i class="fa-solid fa-credit-card"></i>
+                <span><strong>Thẻ tín dụng / ghi nợ</strong><br><small>Visa, Mastercard, JCB</small></span>
+              </label>
+            </div>
+          </section>
+
+          <button type="submit" class="btn btn--accent btn--block" style="padding:16px;">
+            <i class="fa-solid fa-lock"></i> Đặt hàng
+          </button>
+        </form>
+
+        <!-- Tóm tắt đơn hàng -->
+        <aside class="summary" aria-labelledby="order-title">
+          <h2 id="order-title">Đơn hàng của bạn</h2>
+          <div class="mini-list" id="checkout-items"></div>
+          <div class="summary__row"><span>Tạm tính</span><span id="checkout-subtotal">0 ₫</span></div>
+          <div class="summary__row"><span>Phí vận chuyển</span><span id="checkout-shipping">0 ₫</span></div>
+          <div class="summary__row summary__row--total"><span>Tổng cộng</span><span id="checkout-total">0 ₫</span></div>
+          <a href="cart.html" class="link-more" style="margin-top:16px;font-size:.9rem;">
+            <i class="fa-solid fa-pen"></i> Chỉnh sửa giỏ hàng
+          </a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fa-solid fa-bag-shopping"></i> NovaShop</a>
+        <p>Điểm đến mua sắm trực tuyến tin cậy với hàng nghìn sản phẩm chính hãng và dịch vụ hậu mãi tận tâm.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Danh mục sản phẩm">
+        <h3>Danh mục</h3>
+        <ul>
+          <li><a href="products.html?category=dien-tu">Điện tử</a></li>
+          <li><a href="products.html?category=thoi-trang">Thời trang</a></li>
+          <li><a href="products.html?category=gia-dung">Gia dụng</a></li>
+          <li><a href="products.html?category=lam-dep">Làm đẹp</a></li>
+          <li><a href="products.html?category=the-thao">Thể thao</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Hỗ trợ khách hàng">
+        <h3>Hỗ trợ</h3>
+        <ul>
+          <li><a href="contact.html#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</li>
+          <li><i class="fa-solid fa-phone"></i> 0900 000 000</li>
+          <li><i class="fa-solid fa-envelope"></i> hotro@novashop.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 NovaShop. Bản quyền thuộc về NovaShop.</p>
+    </div>
+  </footer>
+
+  <div class="float-stack">
+    <a href="tel:0900000000" class="float-btn float-btn--phone" aria-label="Gọi điện cho NovaShop">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me/0900000000" class="float-btn float-btn--zalo" aria-label="Chat qua Zalo" target="_blank" rel="noopener">Zalo</a>
+    <a href="https://m.me/novashop" class="float-btn float-btn--messenger" aria-label="Chat qua Messenger" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <button type="button" class="float-btn float-btn--top" id="back-to-top" aria-label="Lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
