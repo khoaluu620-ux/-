@@ -8,5 +8,5 @@
   <rect width="400" height="400" fill="url(#g)"/>
   <circle cx="330" cy="70" r="90" fill="#ffffff" opacity=".15"/>
   <circle cx="60" cy="350" r="70" fill="#ffffff" opacity=".12"/>
-  <text x="200" y="265" font-size="170" text-anchor="middle" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">👜</text>
+  <text x="200" y="265" font-size="170" text-anchor="middle" font-family="Apple Color Emoji,Segoe UI Emoji,Noto Color Emoji,sans-serif">🔌</text>
 </svg>

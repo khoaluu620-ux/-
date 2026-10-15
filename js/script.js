@@ -17,44 +17,44 @@
 
 /* ---------- 1. DỮ LIỆU MẪU ---------- */
 
-// Danh mục sản phẩm. "icon" là class của Font Awesome.
+// Danh mục sản phẩm công nghệ. "icon" là class của Font Awesome.
 const CATEGORIES = [
-  { key: 'dien-tu', name: 'Điện tử', icon: 'fa-headphones' },
-  { key: 'thoi-trang', name: 'Thời trang', icon: 'fa-shirt' },
-  { key: 'gia-dung', name: 'Gia dụng', icon: 'fa-kitchen-set' },
-  { key: 'lam-dep', name: 'Làm đẹp', icon: 'fa-spa' },
-  { key: 'the-thao', name: 'Thể thao', icon: 'fa-dumbbell' },
+  { key: 'am-thanh', name: 'Âm thanh', icon: 'fa-headphones' },
+  { key: 'thiet-bi-deo', name: 'Thiết bị đeo', icon: 'fa-clock' },
+  { key: 'may-tinh', name: 'Laptop & PC', icon: 'fa-laptop' },
+  { key: 'phu-kien', name: 'Phụ kiện', icon: 'fa-plug' },
+  { key: 'gaming', name: 'Gaming', icon: 'fa-gamepad' },
 ];
 
 // Sản phẩm mẫu. Ảnh nằm ở images/<id>.svg
 // badge: 'sale' (giảm giá), 'hot' (bán chạy), 'new' (mới), hoặc '' (không có)
 const PRODUCTS = [
-  { id: 'p01', name: 'Tai nghe Bluetooth ANC Pro', category: 'dien-tu', price: 1290000, old: 1790000, rating: 4.8, reviews: 324, badge: 'sale', desc: 'Chống ồn chủ động, pin 30 giờ, kết nối đa điểm cho laptop và điện thoại.' },
-  { id: 'p02', name: 'Đồng hồ thông minh Fit X', category: 'dien-tu', price: 2490000, old: 3290000, rating: 4.6, reviews: 210, badge: 'hot', desc: 'Theo dõi nhịp tim, giấc ngủ và 100+ chế độ thể thao. Chống nước IP68.' },
-  { id: 'p03', name: 'Loa Bluetooth mini', category: 'dien-tu', price: 890000, old: 0, rating: 4.5, reviews: 156, badge: 'new', desc: 'Âm thanh 360°, chống nước IPX7, pin 12 giờ, dễ dàng mang theo.' },
-  { id: 'p04', name: 'Áo thun cotton basic', category: 'thoi-trang', price: 199000, old: 259000, rating: 4.4, reviews: 480, badge: 'sale', desc: 'Chất cotton 100% thoáng mát, form regular, phù hợp mặc hằng ngày.' },
-  { id: 'p05', name: 'Giày sneaker trắng', category: 'thoi-trang', price: 790000, old: 990000, rating: 4.7, reviews: 265, badge: 'hot', desc: 'Đế cao su chống trượt, lót êm ái, phong cách tối giản dễ phối đồ.' },
-  { id: 'p06', name: 'Túi tote canvas', category: 'thoi-trang', price: 249000, old: 0, rating: 4.3, reviews: 98, badge: 'new', desc: 'Vải canvas dày dặn, rộng rãi, có khóa kéo bên trong tiện lợi.' },
-  { id: 'p07', name: 'Nồi chiên không dầu 4L', category: 'gia-dung', price: 1590000, old: 2190000, rating: 4.9, reviews: 512, badge: 'hot', desc: 'Dung tích 4 lít, 8 chế độ nấu, lồng chống dính dễ vệ sinh.' },
-  { id: 'p08', name: 'Máy xay sinh tố 1.5L', category: 'gia-dung', price: 690000, old: 0, rating: 4.5, reviews: 143, badge: 'new', desc: 'Lưỡi thép 6 cánh, 2 tốc độ, xay nhanh đá và các loại trái cây.' },
-  { id: 'p09', name: 'Bình giữ nhiệt 500ml', category: 'gia-dung', price: 329000, old: 420000, rating: 4.6, reviews: 233, badge: 'sale', desc: 'Inox 304 giữ nóng 12 giờ, giữ lạnh 24 giờ, nắp chống tràn.' },
-  { id: 'p10', name: 'Serum Vitamin C 30ml', category: 'lam-dep', price: 340000, old: 450000, rating: 4.7, reviews: 389, badge: 'hot', desc: 'Làm sáng da, mờ thâm nám, bổ sung độ ẩm cho làn da rạng rỡ.' },
-  { id: 'p11', name: 'Son lì giữ màu lâu', category: 'lam-dep', price: 185000, old: 0, rating: 4.5, reviews: 176, badge: 'new', desc: 'Chất son lì mịn môi, lâu trôi, không khô môi, 12 màu thời thượng.' },
-  { id: 'p12', name: 'Thảm yoga TPE 6mm', category: 'the-thao', price: 420000, old: 560000, rating: 4.8, reviews: 201, badge: 'hot', desc: 'Chất liệu TPE thân thiện môi trường, chống trượt hai mặt, kèm túi đựng.' },
+  { id: 'p01', name: 'Tai nghe Bluetooth ANC Pro', category: 'am-thanh', price: 1290000, old: 1790000, rating: 4.8, reviews: 324, badge: 'sale', desc: 'Chống ồn chủ động, pin 30 giờ, kết nối đa điểm cho laptop và điện thoại.' },
+  { id: 'p02', name: 'Đồng hồ thông minh Fit X', category: 'thiet-bi-deo', price: 2490000, old: 3290000, rating: 4.6, reviews: 210, badge: 'hot', desc: 'Theo dõi nhịp tim, giấc ngủ và 100+ chế độ thể thao. Chống nước IP68.' },
+  { id: 'p03', name: 'Loa Bluetooth mini', category: 'am-thanh', price: 890000, old: 0, rating: 4.5, reviews: 156, badge: 'new', desc: 'Âm thanh 360°, chống nước IPX7, pin 12 giờ, dễ dàng mang theo.' },
+  { id: 'p04', name: 'Chuột không dây Silent', category: 'phu-kien', price: 199000, old: 259000, rating: 4.4, reviews: 480, badge: 'sale', desc: 'Cảm biến 4000 DPI, click êm không gây tiếng ồn, pin dùng đến 6 tháng.' },
+  { id: 'p05', name: 'Bàn phím cơ 75% RGB', category: 'phu-kien', price: 790000, old: 990000, rating: 4.7, reviews: 265, badge: 'hot', desc: 'Switch hot-swap, khung nhôm, đèn RGB, kết nối Bluetooth và USB-C.' },
+  { id: 'p06', name: 'Sạc nhanh GaN 65W', category: 'phu-kien', price: 249000, old: 0, rating: 4.3, reviews: 98, badge: 'new', desc: 'Sạc 3 cổng cho laptop, điện thoại và tablet, nhỏ gọn nhờ công nghệ GaN.' },
+  { id: 'p07', name: 'Laptop Ultrabook 14 inch', category: 'may-tinh', price: 15900000, old: 19900000, rating: 4.9, reviews: 512, badge: 'hot', desc: 'Chip thế hệ mới, RAM 16GB, SSD 512GB, màn hình 2.8K, pin 12 giờ.' },
+  { id: 'p08', name: 'Máy tính bảng 10 inch', category: 'may-tinh', price: 6990000, old: 0, rating: 4.5, reviews: 143, badge: 'new', desc: 'Màn hình 10 inch 2K, hỗ trợ bút cảm ứng, phù hợp học tập và giải trí.' },
+  { id: 'p09', name: 'Ổ cứng SSD NVMe 1TB', category: 'may-tinh', price: 1890000, old: 2290000, rating: 4.6, reviews: 233, badge: 'sale', desc: 'Tốc độ đọc 7000MB/s, tản nhiệt graphene, tương thích PC và laptop.' },
+  { id: 'p10', name: 'Tay cầm chơi game không dây', category: 'gaming', price: 750000, old: 950000, rating: 4.7, reviews: 389, badge: 'hot', desc: 'Kết nối Bluetooth và 2.4GHz, rung kép, pin 40 giờ, tương thích PC và điện thoại.' },
+  { id: 'p11', name: 'Webcam 2K Full HD', category: 'phu-kien', price: 890000, old: 0, rating: 4.5, reviews: 176, badge: 'new', desc: 'Quay 2K 30fps, micro khử ồn kép, lấy nét tự động, phù hợp họp online.' },
+  { id: 'p12', name: 'Màn hình gaming 27 inch 165Hz', category: 'gaming', price: 4590000, old: 5490000, rating: 4.8, reviews: 201, badge: 'hot', desc: 'Tấm nền IPS 2K, tần số quét 165Hz, thời gian phản hồi 1ms, hỗ trợ FreeSync.' },
 ];
 
 // Đánh giá mẫu hiển thị ở trang chi tiết sản phẩm
 const REVIEWS = [
   { name: 'Minh Anh', initial: 'M', rating: 5, date: '12/09/2026', text: 'Sản phẩm đúng mô tả, đóng gói cẩn thận, giao hàng rất nhanh.' },
-  { name: 'Hoàng Nam', initial: 'H', rating: 4, date: '03/09/2026', text: 'Chất lượng tốt so với giá tiền. Mình sẽ ủng hộ shop thêm lần nữa.' },
+  { name: 'Hoàng Nam', initial: 'H', rating: 4, date: '03/09/2026', text: 'Hiệu năng tốt so với giá tiền. Mình sẽ ủng hộ shop thêm lần nữa.' },
   { name: 'Thu Trang', initial: 'T', rating: 5, date: '28/08/2026', text: 'Dùng vài tuần thấy rất ổn định, tư vấn nhiệt tình khi mình hỏi.' },
 ];
 
 // Chính sách vận chuyển
 const FREE_SHIP_MIN = 500000; // đơn từ mức này được miễn phí ship
 const SHIPPING_FEE = 30000;   // phí ship khi chưa đủ điều kiện
-const PRICE_LIMIT = 3000000;  // giá tối đa trên thanh trượt
-const PRICE_STEP = 50000;     // bước nhảy của thanh trượt
+const PRICE_LIMIT = 30000000; // giá tối đa trên thanh trượt
+const PRICE_STEP = 500000;    // bước nhảy của thanh trượt
 
 const CART_KEY = 'novashop_cart';
 const WISH_KEY = 'novashop_wishlist';
@@ -547,7 +547,7 @@ function initProductsPage() {
   const minSlider = $('#price-min');
   const maxSlider = $('#price-max');
 
-  // Thiết lập giá trị ban đầu từ URL (ví dụ ?category=dien-tu&q=tai+nghe)
+  // Thiết lập giá trị ban đầu từ URL (ví dụ ?category=am-thanh&q=tai+nghe)
   [minSlider, maxSlider].forEach((slider) => {
     slider.max = PRICE_LIMIT;
     slider.step = PRICE_STEP;

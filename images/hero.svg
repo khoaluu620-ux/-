@@ -14,6 +14,6 @@
     <rect x="320" y="40" width="240" height="210" rx="30" fill="#ffffff" opacity=".95"/>
     <text x="440" y="180">⌚</text>
     <rect x="320" y="270" width="240" height="190" rx="30" fill="#ffffff" opacity=".95"/>
-    <text x="440" y="400">🍳</text>
+    <text x="440" y="400">💻</text>
   </g>
 </svg>
