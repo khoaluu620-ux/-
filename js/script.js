@@ -1012,6 +1012,22 @@ function productCard(p) {
     </article>`;
 }
 
+/** Xác nhận ngay trên nút: lần bấm đầu đổi nhãn, bấm lần nữa trong 3 giây mới thực hiện */
+function confirmOnButton(btn, label = 'Bấm lần nữa để xác nhận') {
+  if (btn.dataset.confirming === 'true') return true;
+  btn.dataset.confirming = 'true';
+  btn.dataset.original = btn.innerHTML;
+  btn.classList.add('is-confirming');
+  btn.innerHTML = `${icon('alert')} ${label}`;
+  setTimeout(() => {
+    if (!btn.isConnected) return;
+    btn.dataset.confirming = '';
+    btn.classList.remove('is-confirming');
+    btn.innerHTML = btn.dataset.original;
+  }, 3000);
+  return false;
+}
+
 function emptyState({ iconName = 'bag', title, text, href = 'products.html', cta = 'Khám phá sản phẩm' }) {
   return `
     <div class="empty-state">
@@ -2089,8 +2105,9 @@ function initCart() {
 
   root.addEventListener('click', (e) => {
     const item = e.target.closest('[data-key]');
-    if (e.target.closest('[data-cart-clear]')) {
-      if (window.confirm('Bạn có chắc muốn xoá toàn bộ giỏ hàng?')) {
+    const clearBtn = e.target.closest('[data-cart-clear]');
+    if (clearBtn) {
+      if (confirmOnButton(clearBtn, 'Bấm lần nữa để xoá hết')) {
         Cart.clear();
         toast('Đã xoá toàn bộ giỏ hàng.');
       }
@@ -2427,7 +2444,8 @@ function initWishlist() {
   };
 
   root.addEventListener('click', (e) => {
-    if (e.target.closest('[data-wish-clear]') && window.confirm('Xoá toàn bộ danh sách yêu thích?')) {
+    const clearBtn = e.target.closest('[data-wish-clear]');
+    if (clearBtn && confirmOnButton(clearBtn, 'Bấm lần nữa để xoá hết')) {
       Wishlist.clear();
     }
     if (e.target.closest('[data-wish-all]')) {

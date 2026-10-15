@@ -320,6 +320,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 600; }
 
 .btn--ghost { color: var(--c-text-muted); padding-inline: var(--space-4); }
 .btn--ghost:hover:not(:disabled) { color: var(--c-text); background: var(--c-surface-2); }
+.btn.is-confirming { color: var(--c-danger); border-color: var(--c-danger); }
 
 .btn--sm { min-height: 38px; padding-inline: var(--space-4); font-size: var(--fs-xs); }
 .btn--lg { min-height: 54px; padding-inline: var(--space-6); font-size: var(--fs-base); }
