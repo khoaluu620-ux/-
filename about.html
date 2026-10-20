@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Giới thiệu NovaShop: câu chuyện thương hiệu, giá trị cốt lõi và đội ngũ đồng hành cùng khách hàng.">
+  <title>Giới thiệu | NovaShop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+
+  <div class="announce-bar" id="announce-bar">
+    <p>🎉 Freeship cho đơn từ <strong>500.000 ₫</strong> · Giảm đến <strong>50%</strong> mùa cuối năm</p>
+    <button type="button" class="announce-bar__close" id="announce-close" aria-label="Đóng thông báo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NovaShop - Trang chủ">
+        <i class="fa-solid fa-bag-shopping"></i> NovaShop
+      </a>
+      <form class="search-form" action="products.html" method="get" role="search">
+        <label for="header-search" class="visually-hidden">Tìm sản phẩm</label>
+        <input type="search" id="header-search" name="q" placeholder="Tìm sản phẩm bạn cần...">
+        <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="header-actions">
+        <a href="login.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user"></i><span class="icon-btn__label">Tài khoản</span>
+        </a>
+        <a href="products.html?wishlist=1" class="icon-btn" aria-label="Yêu thích">
+          <i class="fa-regular fa-heart"></i><span class="icon-btn__label">Yêu thích</span>
+          <span class="badge" data-wish-count>0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i><span class="icon-btn__label">Giỏ hàng</span>
+          <span class="badge" data-cart-count>0</span>
+        </a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Menu chính">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="products.html?category=am-thanh">Âm thanh</a></li>
+          <li><a href="products.html?category=thiet-bi-deo">Thiết bị đeo</a></li>
+          <li><a href="products.html?category=may-tinh">Laptop &amp; PC</a></li>
+          <li><a href="products.html?category=phu-kien">Phụ kiện</a></li>
+          <li><a href="products.html?category=gaming">Gaming</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a><span>/</span>Giới thiệu
+        </nav>
+        <h1>Về NovaShop</h1>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="about-hero" aria-labelledby="story-title">
+        <div class="reveal">
+          <h2 class="section-title" id="story-title">Câu chuyện của chúng tôi</h2>
+          <p>NovaShop ra đời năm 2020 với mong muốn đơn giản: mang đến cho mọi người những sản phẩm chính hãng, giá hợp lý và trải nghiệm mua sắm thoải mái ngay tại nhà.</p>
+          <p>Từ một cửa hàng nhỏ, chúng tôi đã phát triển thành nền tảng bán lẻ trực tuyến với hàng trăm sản phẩm thuộc 5 danh mục, phục vụ hàng nghìn khách hàng mỗi tháng trên toàn quốc.</p>
+          <a href="products.html" class="btn btn--primary mt-5">Khám phá sản phẩm</a>
+        </div>
+        <img src="images/about.svg" alt="Minh họa túi mua sắm và xe giao hàng của NovaShop" class="reveal">
+      </section>
+
+      <!-- Số liệu nổi bật -->
+      <section class="section" aria-labelledby="stats-title">
+        <h2 class="visually-hidden" id="stats-title">Số liệu nổi bật</h2>
+        <div class="stats">
+          <div class="stat reveal"><strong>10K+</strong><span>Khách hàng</span></div>
+          <div class="stat reveal"><strong>500+</strong><span>Sản phẩm</span></div>
+          <div class="stat reveal"><strong>63</strong><span>Tỉnh thành giao hàng</span></div>
+          <div class="stat reveal"><strong>4.8/5</strong><span>Đánh giá trung bình</span></div>
+        </div>
+      </section>
+
+      <!-- Giá trị cốt lõi -->
+      <section class="section" aria-labelledby="values-title">
+        <div class="section-header text-center justify-center">
+          <div>
+            <h2 class="section-title" id="values-title">Giá trị cốt lõi</h2>
+            <p class="section-subtitle">Ba điều chúng tôi luôn ghi nhớ trong mọi đơn hàng</p>
+          </div>
+        </div>
+        <div class="grid grid--fit-240">
+          <article class="benefit reveal">
+            <div class="benefit__icon"><i class="fa-solid fa-award"></i></div>
+            <h3>Chính hãng</h3>
+            <p>Mọi sản phẩm đều có nguồn gốc rõ ràng, đi kèm giấy tờ và tem chống hàng giả.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="benefit__icon"><i class="fa-solid fa-users"></i></div>
+            <h3>Khách hàng là trọng tâm</h3>
+            <p>Đội ngũ hỗ trợ 7 ngày trong tuần, luôn lắng nghe và cải thiện dịch vụ mỗi ngày.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="benefit__icon"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Bền vững</h3>
+            <p>Ưu tiên bao bì tái chế, giảm thiểu rác thải nhựa trong quá trình đóng gói và giao hàng.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Đội ngũ -->
+      <section class="section" aria-labelledby="team-title">
+        <div class="section-header text-center justify-center">
+          <div>
+            <h2 class="section-title" id="team-title">Đội ngũ lãnh đạo</h2>
+            <p class="section-subtitle">Những người đứng sau NovaShop</p>
+          </div>
+        </div>
+        <div class="grid grid--fit-220">
+          <article class="team-card reveal">
+            <span class="avatar">A</span>
+            <h3>Anh Nguyễn</h3>
+            <p>Giám đốc điều hành</p>
+          </article>
+          <article class="team-card reveal">
+            <span class="avatar">B</span>
+            <h3>Bích Trâm</h3>
+            <p>Trưởng phòng sản phẩm</p>
+          </article>
+          <article class="team-card reveal">
+            <span class="avatar">C</span>
+            <h3>Cường Lê</h3>
+            <p>Trưởng phòng vận hành</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--end">
+        <div class="newsletter reveal">
+          <h2>Bạn đã sẵn sàng mua sắm?</h2>
+          <p>Khám phá hàng trăm sản phẩm chính hãng với giá tốt mỗi ngày.</p>
+          <a href="products.html" class="btn btn--light">Mua sắm ngay</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fa-solid fa-bag-shopping"></i> NovaShop</a>
+        <p>Điểm đến mua sắm trực tuyến tin cậy với hàng nghìn sản phẩm chính hãng và dịch vụ hậu mãi tận tâm.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Danh mục sản phẩm">
+        <h3>Danh mục</h3>
+        <ul>
+          <li><a href="products.html?category=am-thanh">Âm thanh</a></li>
+          <li><a href="products.html?category=thiet-bi-deo">Thiết bị đeo</a></li>
+          <li><a href="products.html?category=may-tinh">Laptop &amp; PC</a></li>
+          <li><a href="products.html?category=phu-kien">Phụ kiện</a></li>
+          <li><a href="products.html?category=gaming">Gaming</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Hỗ trợ khách hàng">
+        <h3>Hỗ trợ</h3>
+        <ul>
+          <li><a href="contact.html#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</li>
+          <li><i class="fa-solid fa-phone"></i> 0900 000 000</li>
+          <li><i class="fa-solid fa-envelope"></i> hotro@novashop.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 NovaShop. Bản quyền thuộc về NovaShop.</p>
+    </div>
+  </footer>
+
+  <div class="float-stack">
+    <a href="tel:0900000000" class="float-btn float-btn--phone" aria-label="Gọi điện cho NovaShop">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me/0900000000" class="float-btn float-btn--zalo" aria-label="Chat qua Zalo" target="_blank" rel="noopener">Zalo</a>
+    <a href="https://m.me/novashop" class="float-btn float-btn--messenger" aria-label="Chat qua Messenger" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <button type="button" class="float-btn float-btn--top" id="back-to-top" aria-label="Lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

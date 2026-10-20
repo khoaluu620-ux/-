@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Liên hệ NovaShop: gửi yêu cầu hỗ trợ, xem thông tin liên hệ và câu hỏi thường gặp.">
+  <title>Liên hệ | NovaShop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+
+  <div class="announce-bar" id="announce-bar">
+    <p>🎉 Freeship cho đơn từ <strong>500.000 ₫</strong> · Giảm đến <strong>50%</strong> mùa cuối năm</p>
+    <button type="button" class="announce-bar__close" id="announce-close" aria-label="Đóng thông báo">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="NovaShop - Trang chủ">
+        <i class="fa-solid fa-bag-shopping"></i> NovaShop
+      </a>
+      <form class="search-form" action="products.html" method="get" role="search">
+        <label for="header-search" class="visually-hidden">Tìm sản phẩm</label>
+        <input type="search" id="header-search" name="q" placeholder="Tìm sản phẩm bạn cần...">
+        <button type="submit" aria-label="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="header-actions">
+        <a href="login.html" class="icon-btn" aria-label="Tài khoản">
+          <i class="fa-regular fa-user"></i><span class="icon-btn__label">Tài khoản</span>
+        </a>
+        <a href="products.html?wishlist=1" class="icon-btn" aria-label="Yêu thích">
+          <i class="fa-regular fa-heart"></i><span class="icon-btn__label">Yêu thích</span>
+          <span class="badge" data-wish-count>0</span>
+        </a>
+        <a href="cart.html" class="icon-btn" aria-label="Giỏ hàng">
+          <i class="fa-solid fa-cart-shopping"></i><span class="icon-btn__label">Giỏ hàng</span>
+          <span class="badge" data-cart-count>0</span>
+        </a>
+        <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav" aria-label="Menu chính">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Tất cả sản phẩm</a></li>
+          <li><a href="products.html?category=am-thanh">Âm thanh</a></li>
+          <li><a href="products.html?category=thiet-bi-deo">Thiết bị đeo</a></li>
+          <li><a href="products.html?category=may-tinh">Laptop &amp; PC</a></li>
+          <li><a href="products.html?category=phu-kien">Phụ kiện</a></li>
+          <li><a href="products.html?category=gaming">Gaming</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Đường dẫn">
+          <a href="index.html">Trang chủ</a><span>/</span>Liên hệ
+        </nav>
+        <h1>Liên hệ với chúng tôi</h1>
+        <p class="breadcrumb">Chúng tôi luôn sẵn sàng hỗ trợ bạn từ 8:00 đến 21:00 hằng ngày.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Thông tin liên hệ -->
+        <aside class="contact-info" aria-label="Thông tin liên hệ">
+          <div class="info-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Địa chỉ</strong><br><small>123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</small></div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-phone"></i>
+            <div><strong>Điện thoại</strong><br><small>0900 000 000 (8:00 - 21:00)</small></div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-envelope"></i>
+            <div><strong>Email</strong><br><small>hotro@novashop.vn</small></div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-clock"></i>
+            <div><strong>Giờ làm việc</strong><br><small>Thứ 2 - Chủ nhật: 8:00 - 21:00</small></div>
+          </div>
+        </aside>
+
+        <!-- Form liên hệ -->
+        <form class="contact-form-card" id="contact-form" data-validate novalidate>
+          <h2 class="section-title title-sm">Gửi tin nhắn cho chúng tôi</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="contact-name">Họ và tên <span>*</span></label>
+              <input type="text" id="contact-name" name="name" autocomplete="name" required>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Số điện thoại <span>*</span></label>
+              <input type="tel" id="contact-phone" name="phone" autocomplete="tel" required data-rule="phone">
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group form-group--full">
+              <label for="contact-email">Email <span>*</span></label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" required data-rule="email">
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group form-group--full">
+              <label for="contact-topic">Chủ đề</label>
+              <select id="contact-topic" name="topic">
+                <option>Hỏi về sản phẩm</option>
+                <option>Theo dõi đơn hàng</option>
+                <option>Đổi trả / bảo hành</option>
+                <option>Hợp tác kinh doanh</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label for="contact-message">Nội dung <span>*</span></label>
+              <textarea id="contact-message" name="message" required></textarea>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary mt-5">
+            <i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn
+          </button>
+        </form>
+      </div>
+
+      <!-- Câu hỏi thường gặp dạng accordion (thẻ details) -->
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <h2 class="section-title mb-5" id="faq-title">Câu hỏi thường gặp</h2>
+        <details>
+          <summary>Thời gian giao hàng là bao lâu?</summary>
+          <p>Đơn hàng nội thành TP. Hồ Chí Minh và Hà Nội được giao trong 1-2 ngày. Các tỉnh khác từ 2-5 ngày làm việc.</p>
+        </details>
+        <details>
+          <summary>Tôi có thể đổi trả sản phẩm trong bao lâu?</summary>
+          <p>Bạn được đổi trả miễn phí trong vòng 7 ngày kể từ khi nhận hàng, với điều kiện sản phẩm còn nguyên tem và chưa qua sử dụng.</p>
+        </details>
+        <details>
+          <summary>Phí vận chuyển được tính như thế nào?</summary>
+          <p>NovaShop miễn phí vận chuyển cho đơn từ 500.000 ₫. Đơn dưới mức này phí ship là 30.000 ₫.</p>
+        </details>
+        <details>
+          <summary>Các hình thức thanh toán được hỗ trợ?</summary>
+          <p>Bạn có thể thanh toán khi nhận hàng (COD), chuyển khoản ngân hàng hoặc thẻ tín dụng/ghi nợ.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fa-solid fa-bag-shopping"></i> NovaShop</a>
+        <p>Điểm đến mua sắm trực tuyến tin cậy với hàng nghìn sản phẩm chính hãng và dịch vụ hậu mãi tận tâm.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <nav aria-label="Danh mục sản phẩm">
+        <h3>Danh mục</h3>
+        <ul>
+          <li><a href="products.html?category=am-thanh">Âm thanh</a></li>
+          <li><a href="products.html?category=thiet-bi-deo">Thiết bị đeo</a></li>
+          <li><a href="products.html?category=may-tinh">Laptop &amp; PC</a></li>
+          <li><a href="products.html?category=phu-kien">Phụ kiện</a></li>
+          <li><a href="products.html?category=gaming">Gaming</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Hỗ trợ khách hàng">
+        <h3>Hỗ trợ</h3>
+        <ul>
+          <li><a href="contact.html#faq">Câu hỏi thường gặp</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="cart.html">Giỏ hàng</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> 123 Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</li>
+          <li><i class="fa-solid fa-phone"></i> 0900 000 000</li>
+          <li><i class="fa-solid fa-envelope"></i> hotro@novashop.vn</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 NovaShop. Bản quyền thuộc về NovaShop.</p>
+    </div>
+  </footer>
+
+  <div class="float-stack">
+    <a href="tel:0900000000" class="float-btn float-btn--phone" aria-label="Gọi điện cho NovaShop">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me/0900000000" class="float-btn float-btn--zalo" aria-label="Chat qua Zalo" target="_blank" rel="noopener">Zalo</a>
+    <a href="https://m.me/novashop" class="float-btn float-btn--messenger" aria-label="Chat qua Messenger" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+    <button type="button" class="float-btn float-btn--top" id="back-to-top" aria-label="Lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </div>
+
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
