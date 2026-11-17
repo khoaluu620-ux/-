@@ -86,3 +86,18 @@ Repo ban đầu chưa có mã nguồn hay schema nên dự án được viết t
 - `TrangPhuc.IDTuong` (tướng sở hữu trang phục), `LichSuGiaoDich.IDTaiKhoan / IDTrangPhuc / ThoiGianMua`, `LichSuTranDau.IDTaiKhoan / IDTranDau / IDTuong / KetQua / SoMangHaGuc / SoMangBiHaGuc / HaGuc`, `TaiKhoan_Tuong.IDTaiKhoan / IDTuong`.
 - Các câu SQL nằm trong `src/routes/*.routes.js`, nên nếu tên cột khác chỉ cần sửa tại đó.
 - Tham số `ketQua` được so sánh như chuỗi (ví dụ `Thắng`). Nếu `KetQua` là số hoặc mã khác, cần đổi.
+
+## Phiên bản C# (ASP.NET Core, thư mục `csharp/GameApi`)
+
+Mới có API 3 theo kiểu controller + EF Core (`_context`), dùng Pomelo MySQL:
+
+```
+GET /api/trandau?CheDoChoi=Xếp hạng
+```
+
+Chuỗi kết nối đặt trong `ConnectionStrings:DefaultConnection` (hoặc biến môi trường `ConnectionStrings__DefaultConnection`). Chạy:
+
+```bash
+cd csharp/GameApi
+dotnet run
+```
