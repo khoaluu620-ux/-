@@ -1,0 +1,18 @@
+{
+  "name": "game-api",
+  "version": "1.0.0",
+  "description": "REST API cho cơ sở dữ liệu game (Tướng, Tài khoản, Trận đấu, Trang phục)",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/api.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.22.3",
+    "mysql2": "^3.24.6"
+  }
+}
